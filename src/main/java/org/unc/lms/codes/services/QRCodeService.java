@@ -7,7 +7,8 @@ import org.unc.lms.codes.model.data.Student;
 public class QRCodeService {
 
     public String generateQRCodeContent(Student student) {
-        // Customize this method based on the data you want to include in the QR code
+    	// not final context
+    	
         return student.getFirstName() + " " + student.getLastName() +
                ", Student ID: " + student.getStudentId() +
                ", Course: " + student.getCourse() +
