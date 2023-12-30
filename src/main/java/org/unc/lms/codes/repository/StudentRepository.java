@@ -53,7 +53,7 @@ public class StudentRepository {
 	             String suffix = rs.getString("suffix"); 
 	             String uncEmail = rs.getString("unc_email"); 
 	             String course = rs.getString("course"); 
-	             String phoneNum = rs.getString("phoneNum"); 
+	             String phoneNum = rs.getString("phone_num"); 
 	             
 				 Student s = new Student(); 
 				 

@@ -72,7 +72,8 @@ public class RegisterController {
 	    System.out.println("Library Registration Form data: " + libraryRegistrationForm.toString());
 	    
 	    model.addAttribute("libraryRegistrationForm", libraryRegistrationForm);
-	    model.addAttribute("qrCodeUrl", "/student/qr");  // Updated URL without studentId
+	    model.addAttribute("qrCodeUrl", "/student/qr?studentId=" + libraryRegistrationForm.getStudentId());
+
 	   
 	    return "generateLibraryCardView";
 	}
