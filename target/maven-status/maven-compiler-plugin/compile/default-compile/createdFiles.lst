@@ -1,5 +1,3 @@
-org\unc\lms\codes\controller\DashboardController.class
-org\unc\lms\codes\controller\HomeController.class
 org\unc\lms\codes\UNCLibraryManagementSystem.class
 org\unc\lms\codes\package-info.class
 org\unc\lms\codes\SpringMVContainerConfig.class
@@ -8,3 +6,5 @@ org\unc\lms\codes\controller\package-info.class
 org\unc\lms\codes\model\form\package-info.class
 org\unc\lms\codes\repository\package-info.class
 org\unc\lms\codes\services\package-info.class
+org\unc\lms\codes\controller\LMSController.class
+org\unc\lms\codes\controller\LandingPageController.class
