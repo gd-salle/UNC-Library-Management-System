@@ -6,10 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/lms")
 public class HomeController {
 
-	@RequestMapping(path = "/home", method = RequestMethod.GET)
+	@RequestMapping(path = "/", method = RequestMethod.GET)
 	public String viewHome(Model model) {
 		return "HomeView"; 
 	}
