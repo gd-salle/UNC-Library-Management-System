@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 org\unc\lms\codes\services\StudentService.class
 org\unc\lms\codes\components\package-info.class
 org\unc\lms\codes\repository\StudentRepository$1.class
@@ -19,3 +20,15 @@ org\unc\lms\codes\model\form\package-info.class
 org\unc\lms\codes\services\package-info.class
 org\unc\lms\codes\LibraryManagementSystemApplication.class
 org\unc\lms\codes\repository\StudentRepository.class
+=======
+org\unc\lms\codes\UNCLibraryManagementSystem.class
+org\unc\lms\codes\package-info.class
+org\unc\lms\codes\SpringMVContainerConfig.class
+org\unc\lms\codes\model\data\package-info.class
+org\unc\lms\codes\controller\package-info.class
+org\unc\lms\codes\model\form\package-info.class
+org\unc\lms\codes\repository\package-info.class
+org\unc\lms\codes\services\package-info.class
+org\unc\lms\codes\controller\LMSController.class
+org\unc\lms\codes\controller\LandingPageController.class
+>>>>>>> 88fd02b021ce50dd65303a37eb00f45ab3cd2caa
