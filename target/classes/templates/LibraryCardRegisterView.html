@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+<title>Library Card Registration</title>
+</head>
+<body>
+   <header> 
+		<nav class="navbar navbar-expand-lg sticky-top">
+		    <div class="container px-2">
+		        <div class="logo-container">
+		            <img th:src="@{/img/uncLogo.png}" alt="Logo" class="logo">
+		            <div class="text-container">
+		                <span class="main-text">Library Management System</span>
+		                <span class="sub-text">University of Nueva Caceres</span>
+		            </div>
+		        </div>
+		        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                	<span class="navbar-toggler-icon"></span>
+            	</button>
+		        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+					
+		        </div>
+		    </div>
+		</nav>
+	</header>
+    <div class="title">
+        <h2>Library Card Registration Form</h2>
+    </div>
+    <div class="form">
+        <form th:action="@{/register}" th:object="${libraryRegistrationForm}" method="post">
+            <div>
+                <label for="id">Student ID Number</label>
+                <input type="text" th:field="*{studentId}" id="studentId" required/>
+            </div>
+            <div>
+                <label for="firstName">First Name</label>
+                <input type="text" th:field="*{firstName}" id="firstName" required/>
+            </div>
+            <div>
+                <label for="middleName">Middle Name</label>
+                <input type="text" th:field="*{middleName}" id="middleName"/>
+            </div>
+            <div>
+                <label for="lastName">Last Name</label>
+                <input type="text" th:field="*{lastName}" id="lastName" required/>
+            </div>
+            <div>
+                <label for="suffix">Suffix</label>
+                <input type="text" th:field="*{suffix}" id="suffix"/>
+            </div>
+            <div>
+                <label for="email">UNC Email Address</label>
+                <input type="email" th:field="*{uncEmail}" id="uncEmail" required/>
+            </div>
+            <div>
+                <label for="course">Course</label>
+                <select th:field="*{course}" id="course" required>
+                    <option value="BSIT">Bachelor of Science in Information Technology</option>
+                    <option value="BSCS">Bachelor of Science in Computer Science</option>
+                    <option value="BSIS">Bachelor of Science in Information Systems</option>
+                    <option value="BSECE">Bachelor of Science in Electronics and Communications Engineering</option>
+                    <option value="BSCPE">Bachelor of Science in Computer Engineering</option>
+                </select>
+            </div>
+            <div>
+                <label for="phone">Phone Number</label>
+                <input type="tel" th:field="*{phoneNum}" id="phoneNum" required/>
+            </div>
+            <div>
+                <button type="submit">SIGN UP</button>
+            </div>
+        </form>
+    </div>
+    <div class="footer">
+        <img src="unc-logo.png" alt="UNC Logo"/>
+        <img src="facebook-logo.png" alt="Facebook Logo"/>
+        <img src="twitter-logo.png" alt="Twitter Logo"/>
+        <img src="instagram-logo.png" alt="Instagram Logo"/>
+        <p>UNIVERSITY OF NUEVA CACERES<br/>
+        J Hernandez Avenue, Naga City 4400<br/>
+        (054) 4726100 | (054) 4722368<br/>
+        &copy; 2023 University of Nueva Caceres. All rights reserved.</p>
+    </div>
+</body>
+</html>
