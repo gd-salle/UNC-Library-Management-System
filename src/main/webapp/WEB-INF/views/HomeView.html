@@ -11,24 +11,20 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Catalog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sign Up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Support</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
-                </li>
-            </ul>
+        <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #cc0000;">
+        	<div class="container-fluid">
+        		<a class="navbar-brand" href="">
+        		<img alt="lms-Logo" th:src="@{/img/unc-logo.png}" width="30" height="30" class="d-inline-block align-top">
+        		Library Management System</a>
+        		<ul class="navbar-nav">
+	                <li class="nav-item">
+	                    <a class="nav-link text-white" href="#">Sign Up</a>
+	                </li>
+	                <li class="nav-item">
+	                    <a class="nav-link text-white" href="#">Login</a>
+	                </li>
+            	</ul>
+        	</div>
         </nav>
     </header>
     <main>
@@ -41,8 +37,47 @@
             </div>
         </div>
     </main>
-    <footer class="bg-dark text-center text-white">
-        <p>© 2023. University of Nueva Caceres. All Rights Reserved.</p>
+    <footer class="pt-3 pb-3" style="background-color: #3D3D3D;">
+        <div class="container">
+        <div class="row">
+       		<!-- Left Section - Logo and Name -->
+			<div class="col-lg-4 text-left d-flex justify-content-center align-items-center">
+			    <div class="d-flex align-items-center">
+			        <img th:src="@{/img/unc-logo.png}" alt="Logo" width="75" height="75">
+			        <div class="ml-3 text-center">
+			            <p class="mb-0 text-white">UNIVERSITY OF</p>
+			            <p class="mb-0 text-white">NUEVA CACERES</p>
+			        </div>
+			    </div>
+			</div>
+
+            <!-- Middle Section - Address -->
+            <div class="col-lg-4 text-center d-flex align-items-center justify-content-center">
+            	<div class="pt-3" style="font-size: 15px; line-height: 0.1;">
+	                <p class="text-white">J. Hernandez Avenue, Naga City 4404</p>
+	                <p class="text-white">095611301775 | 09071566898</p>
+	                <p><a href="">info@unc.edu.ph</a></p>
+	                <p><a href="">admission@unc.edu.ph</a></p>
+            	</div>
+            </div>
+
+            <!-- Left Section - Social Media Links -->
+            <div class="col-lg-4 text-right d-flex align-items-center justify-content-center">
+            
+            	<div class="pt-3">
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white">Facebook</a></li>
+                    <li><a href="#" class="text-white">Twitter</a></li>
+                    <li><a href="#" class="text-white">Instagram</a></li>
+                </ul>
+            	</div>
+                
+            </div>
+        </div>
+    </div>
     </footer>
+    <div class="text-center text-white" style="background-color: #cc0000; font-size:10px;">
+        	<p>Copyright © 2023. University of Nueva Caceres. All Rights Reserved.</p>
+    </div>
 </body>
 </html>
