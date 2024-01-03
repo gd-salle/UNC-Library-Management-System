@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/lms")
 public class OverdueController {
 	
-	@RequestMapping(path="/user/logs", method = RequestMethod.GET)
+	@RequestMapping(path="/user/dashboard/overdues", method = RequestMethod.GET)
 	public String overduePage(Model model) {
 		return "overduePage";
 	}

@@ -9,7 +9,6 @@ public class Book {
 	private String author;
 	private String genre;
 	private Date yearPublished;
-	private Student bookBorrower;
 	
 	public int getId() {
 		return id;
@@ -40,11 +39,5 @@ public class Book {
 	}
 	public void setYearPublished(Date yearPublished) {
 		this.yearPublished = yearPublished;
-	}
-	public Student getBookBorrower() {
-		return bookBorrower;
-	}
-	public void setBookBorrower(Student bookBorrower) {
-		this.bookBorrower = bookBorrower;
 	}
 }
