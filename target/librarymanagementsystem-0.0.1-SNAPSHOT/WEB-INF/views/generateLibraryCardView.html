@@ -5,50 +5,15 @@
     <meta charset="ISO-8859-1">
     <title>Library Card</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" th:href="@{/css/library-card.css}" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-        }
-
-        .library-card {
-            width: 300px;
-            border: 2px solid #333;
-            padding: 20px;
-            margin: 20px auto;
-            background-color: #f9f9f9;
-        }
-
-        .library-card img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-        }
-
-        .user-details {
-            margin-top: 20px;
-        }
-
-        .user-details p {
-            margin: 5px 0;
-        }
-
-        .download-link {
-            display: block;
-            margin-top: 20px;
-            color: #007bff;
-            text-decoration: none;
-        }
-    </style>
 </head>
 <body>
    <header>
-        <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #cc0000;">
+        <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
         	<div class="container-fluid">
         		<div class="logo-container">
 		            <img th:src="@{/img/unc-logo.png}" alt="Logo" class="logo">
@@ -61,19 +26,40 @@
         	</div>
         </nav>
     </header>
+    
+    
+	<div class="card">
+	    <div class="card-header">
+	          <!-- header  -->
+	           <span class="image"><img th:src="@{${qrCodeUrl}}" alt="QR Code" /></span>  
+	    </div>
+	
+	    <div class="card-body">
+	        <span class="name"><span th:text="${libraryRegistrationForm.fullName}"></span>, <span th:text="${libraryRegistrationForm.yearLevel}"></span></span><br>
+	        <span class="job-title"><u><span th:text="${libraryRegistrationForm.course}"></span></u></span>
+	        <br>
+	        <span class="job-title"><span th:text="${libraryRegistrationForm.department}"></span></span>
+	        <div class="bio">
+	        	<span th:text="${libraryRegistrationForm.uncEmail}"></span>
+	        	<br>
+	        	<span th:text="${libraryRegistrationForm.phoneNum}"></span>
+	        </div>
+	    </div>
 
-    <div class="library-card">
-        <img src="https://via.placeholder.com/80" alt="User Photo">
-        <div class="user-details">
-            <p>Name: <span th:text="${libraryRegistrationForm.firstName}"></span></p>
-            <p>Student ID: <span th:text="${libraryRegistrationForm.studentId}"></span></p>
-            <p>Course: <span th:text="${libraryRegistrationForm.course}"></span></p>
-            <p>UNC Email Address: <span th:text="${libraryRegistrationForm.uncEmail}"></span></p>
-            <p>Phone number: <span th:text="${libraryRegistrationForm.phoneNum}"></span></p>
-            <img th:src="@{${qrCodeUrl}}" alt="QR Code" />
-        </div>
-    </div>
-
+	    <div class="card-footer">
+	        <div class="stats">
+	            <div class="stat">
+	              <span class="label">Library Card</span>
+	              <span class="value"><span th:text="${libraryRegistrationForm.libraryCardNumber}"></span></span>
+	            </div>
+	            <div class="stat">
+	              <span class="label">Student Id</span>
+	              <span class="value"><span th:text="${libraryRegistrationForm.studentId}"></span></span>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	    
     <button onclick="downloadLibraryCard()">Download Library Card</button>
 
 	<footer class="pt-3 pb-3" style="background-color: #3D3D3D;">
@@ -124,15 +110,20 @@
     <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
     <script>
         function downloadLibraryCard() {
-            var element = document.querySelector('.library-card');
+            var element = document.querySelector('.card');
 
             html2pdf(element, {
                 margin: 10,
                 filename: 'library_card.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
+                image: { type: 'jpeg', quality: 1 },
+                html2canvas: { 
+                    scale: 1,
+                    useCORS: true,  // Allow cross-origin images
+                    logging: false  // Disable console logging for html2canvas
+                },
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
             });
+
         }
     </script>
 

@@ -1,123 +1,293 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="ISO-8859-1">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" th:href="@{/css/main.css}" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<title>Library Card Registration</title>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/CSSForms.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
+    <title>Library Card Registration</title>
 </head>
 <body>
-   <header>
-        <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #cc0000;">
-        	<div class="container-fluid">
-        		<div class="logo-container">
-		            <img th:src="@{/img/unc-logo.png}" alt="Logo" class="logo">
-		            <div class="text-container">
-		                <span class="main-text">Library Management System</span>
-		                <span class="sub-text">University of Nueva Caceres</span>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
+			<div class="container-fluid">
+				<div class="logo-container">
+					<img th:src="@{/img/unc-logo.png}" alt="Logo" class="logo">
+					<div class="text-container">
+						<span class="main-text">Library Management System</span> <span
+							class="sub-text">University of Nueva Caceres</span>
+					</div>
+				</div>
+				<!-- Button  -->
+				<button type="button" class="btn btn-light btn-circle btn-sm"> &lt; </button> 
+			</div>
+		</nav>
+    </header>
+    <main>
+	    <div class="title">
+	        <h2>Library Card Registration Form</h2>
+	    </div>
+	    <div class="container">
+		    <form th:action="@{/register}" th:object="${libraryRegistrationForm}" method="post">
+		    	<div class = "row">
+		    		<div class="col-md-4">
+		    			<label>Library Card Number</label>
+							<label>Library Card Number</label>
+							<span th:text="${libraryCardNumber}" class="form-control"></span>
+							<input type="hidden" th:field="*{libraryCardNumber}" th:value="${libraryCardNumber}" />
+		    		</div>
+		    	</div>
+		        <div class="row">
+		        	<div class="col-md-3">
+		                <label for="userType">User Type</label>
+		                <select th:field="*{userType}" id="userType" required>
+					    	<option value="none"> -- None --</option>
+					        <option value="Student"> Student </option>
+					        <option value="Faculty"> Faculty </option>
+					        <option value="Researcher"> Researcher </option>
+					        <option value="Student Assistant"> Student Assistant </option>
+					        <option value="Librarian"> Librarian </option>
+					    </select>
+		            </div>
+		            <div class="col-md-3	">
+		                <label for="studentId">Student ID Number</label>
+		                <input type="text" th:field="*{studentId}" id="studentId" class="form-control" placeholder="xx-xxxxx" required/>
+		            </div>
+		             <div class="col-md-3	">
+		                <label for="ezName">EZ Name</label>
+		                <input type="text" th:field="*{ezName}" id="ezName" class="form-control" placeholder="Enter your EZ name" required/>
+		            </div>
+		            <div class="col-md-3	">
+		                <label for="password">Password</label>
+		                <input type="password" th:field="*{password}" id="password" class="form-control" placeholder="Enter your password" required/>
 		            </div>
 		        </div>
-				<!--Button  -->
-        	</div>
-        </nav>
-    </header>
+		        <div class="row">
+			        <div class="col-md-3">
+			                <label for="firstName">First Name</label>
+			                <input type="text" th:field="*{firstName}" id="firstName" class="form-control" placeholder="e.g John" required/>
+			            </div>
+		            <div class="col-md-3">
+		                <label for="middleName">Middle Name</label>
+		                <input type="text" th:field="*{middleName}" id="middleName" class="form-control" placeholder="e.g Smith"/>
+		            </div>
+		            <div class="col-md-3">
+		                <label for="lastName">Last Name</label>
+		                <input type="text" th:field="*{lastName}" id="lastName" class="form-control" placeholder="e.g Doe" required/>
+		            </div>
+		            <div class="col-md-3">
+		                <label for="suffix">Suffix</label>
+		                <input type="text" th:field="*{suffix}" id="suffix" class="form-control" placeholder="e.g Jr, Sr, II, III"/>
+		            </div>
+		        </div>
+		        <div class="row">
+		            <div class="col-md-6">
+		                <label for="uncEmail">UNC Email Address</label>
+		                <input type="email" th:field="*{uncEmail}" id="uncEmail" class="form-control" placeholder="e.g john.doe@unc.edu.ph" required/>
+		            </div>
+		            <div class="col-md-6">
+		                <label for="phoneNum">Phone Number</label>
+		                <input type="tel" th:field="*{phoneNum}" id="phoneNum" class="form-control" placeholder="0000-000-0000" maxlength="13" required/>
+		            </div>
+		        </div>
+		        <div class="row">
+		        	<div class="col-md-4">
+		                <label for="department">Department</label>
+		                <select th:field="*{department}" name="department" id="department" class="form-control" onchange="updateOptions()" required>
+		                	<option value="None"> -- None --</option>
+						    <option th:each="departmentName : ${departmentNames}" th:value="${departmentName}" th:text="${departmentName}"></option>
+						</select>
+		            </div>
+		            <div class="col-md-4">
+		                <label for="yearLevel">Year/Grade Level</label>
+					    <select th:field="*{yearLevel}" id="yearLevel" required>
+					    	<option value="none"> -- None --</option>
+					        <!-- Options will be dynamically added here -->
+					    </select>
+		            </div>
+		            <div class="col-md-4">
+		                <label for="course" id="label">course</label>
+					    <select th:field="*{course}" id="course" required>
+					    	<option value="None"> -- None --</option>
+					        <!-- Options will be dynamically added here -->
+					    </select>
+		            </div>
+		        </div>
+		        <div class="row">
+		            <div class="col-md-12">
+		                <button type="submit" class="btn btn-primary">SIGN UP</button>
+		            </div>
+		        </div>
+		    </form>
+		</div>
+    </main>
     
-    
-    <div class="title">
-        <h2>Library Card Registration Form</h2>
-    </div>
-    <div class="form">
-        <form th:action="@{/register}" th:object="${libraryRegistrationForm}" method="post">
-            <div>
-                <label for="id">Student ID Number</label>
-                <input type="text" th:field="*{studentId}" id="studentId" required/>
-            </div>
-            <div>
-                <label for="firstName">First Name</label>
-                <input type="text" th:field="*{firstName}" id="firstName" required/>
-            </div>
-            <div>
-                <label for="middleName">Middle Name</label>
-                <input type="text" th:field="*{middleName}" id="middleName"/>
-            </div>
-            <div>
-                <label for="lastName">Last Name</label>
-                <input type="text" th:field="*{lastName}" id="lastName" required/>
-            </div>
-            <div>
-                <label for="suffix">Suffix</label>
-                <input type="text" th:field="*{suffix}" id="suffix"/>
-            </div>
-            <div>
-                <label for="email">UNC Email Address</label>
-                <input type="email" th:field="*{uncEmail}" id="uncEmail" required/>
-            </div>
-            <div>
-                <label for="course">Course</label>
-                <select th:field="*{course}" id="course" required>
-                    <option value="BSIT">Bachelor of Science in Information Technology</option>
-                    <option value="BSCS">Bachelor of Science in Computer Science</option>
-                    <option value="BSIS">Bachelor of Science in Information Systems</option>
-                    <option value="BSECE">Bachelor of Science in Electronics and Communications Engineering</option>
-                    <option value="BSCPE">Bachelor of Science in Computer Engineering</option>
-                </select>
-            </div>
-            <div>
-                <label for="phone">Phone Number</label>
-                <input type="tel" th:field="*{phoneNum}" id="phoneNum" required/>
-            </div>
-            <div>
-                <button type="submit" value="submit">SIGN UP</button>
-            </div>
-        </form>
-    </div>
-    
-    <!-- Footer -->
-	<footer class="pt-3 pb-3" style="background-color: #3D3D3D;">
+    <footer class="pt-3 pb-3">
         <div class="container">
-        <div class="row">
-       		<!-- Left Section - Logo and Name -->
-			<div class="col-lg-4 text-left d-flex justify-content-center align-items-center">
-			    <div class="d-flex align-items-center">
-			        <img th:src="@{/img/unc-logo.png}" alt="Logo" width="75" height="75">
-			        <div class="ml-3 text-center">
-			            <p class="mb-0 text-white">UNIVERSITY OF</p>
-			            <p class="mb-0 text-white">NUEVA CACERES</p>
-			        </div>
-			    </div>
-			</div>
-
-            <!-- Middle Section - Address -->
-            <div class="col-lg-4 text-center d-flex align-items-center justify-content-center">
-            	<div class="pt-3" style="font-size: 15px; line-height: 0.1;">
-	                <p class="text-white">J. Hernandez Avenue, Naga City 4404</p>
-	                <p class="text-white">095611301775 | 09071566898</p>
-	                <p><a href="">info@unc.edu.ph</a></p>
-	                <p><a href="">admission@unc.edu.ph</a></p>
-            	</div>
-            </div>
-
-            <!-- Left Section - Social Media Links -->
-            <div class="col-lg-4 text-right d-flex align-items-center justify-content-center">
-            
-            	<div class="pt-3">
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-white">Facebook</a></li>
-                    <li><a href="#" class="text-white">Twitter</a></li>
-                    <li><a href="#" class="text-white">Instagram</a></li>
-                </ul>
-            	</div>
-                
+            <div class="row">
+                <div class="col-lg-4 text-left d-flex justify-content-center align-items-center">
+                    <div class="d-flex align-items-center">
+                        <img th:src="@{/img/unc-logo.png}" alt="Logo" width="75" height="75">
+                        <div class="ml-3 text-center">
+                            <p class="mb-0">UNIVERSITY OF</p>
+                            <p class="mb-0">NUEVA CACERES</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center d-flex align-items-center justify-content-center">
+                    <div class="pt-3">
+                        <p>J. Hernandez Avenue, Naga City 4404</p>
+                        <p>095611301775 | 09071566898</p>
+                        <p><a href="mailto:info@unc.edu.ph">info@unc.edu.ph</a></p>
+                        <p><a href="mailto:admission@unc.edu.ph">admission@unc.edu.ph</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-right d-flex align-items-center justify-content-center">
+                    <div class="pt-3">
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">Facebook</a></li>
+                            <li><a href="#" class="text-white">Twitter</a></li>
+                            <li><a href="#" class="text-white">Instagram</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
     </footer>
-    <div class="text-center text-white" style="background-color: #cc0000; font-size:10px;">
-        	<p>Copyright © 2023. University of Nueva Caceres. All Rights Reserved.</p>
+    
+    <div class="copyright text-center">
+        <p>Copyright © 2023. University of Nueva Caceres. All Rights Reserved.</p>
     </div>
+    
+<script>
+function updateOptions() {
+    updateYearLevelOptions();
+    updateCourseOptions();
+}
+
+function updateYearLevelOptions() {
+    var departmentSelect = document.getElementById("department");
+    var yearLevelSelect = document.getElementById("yearLevel");
+    var courseDropdown = document.getElementById("course");
+    var courseLabel = document.getElementById("label"); 
+
+    // Clear existing options
+    yearLevelSelect.innerHTML = "";
+    courseDropdown.style.display = "none";
+    courseLabel.style.display = "none"; 
+
+    // Get the selected department
+    var selectedDepartment = departmentSelect.value;
+
+    // Add dynamic options based on the selected department
+    if (selectedDepartment === "Kinder and Pre-School") {
+        addOptions(yearLevelSelect, ["Nursery 1", "Nursery 2", "Kinder"]);
+    } else if (selectedDepartment === "Elementary") {
+        addOptions(yearLevelSelect, ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Grade 6"]);
+    } else if (selectedDepartment === "Junior High School") {
+        addOptions(yearLevelSelect, ["Grade 7", "Grade 8", "Grade 9", "Grade 10"]);
+    } else if (selectedDepartment === "Senior High School") {
+        addOptions(yearLevelSelect, ["Grade 11", "Grade 12"]);
+    } else {
+        // You can add options for College year levels dynamically here
+        addOptions(yearLevelSelect, ["1st Year", "2nd Year", "3rd Year", "4th Year", "5th Year"]);
+        // Display the course dropdown and label for College
+        courseDropdown.style.display = "block";
+        courseLabel.style.display = "block";
+
+    }
+}
+
+function updateCourseOptions() {
+    var selectedDepartment = document.getElementById("department").value;
+
+    // Add a check for a valid department
+    if (selectedDepartment !== '-- None --') { updateYearLevelOptions();  GetCourseList();} 
+    else {
+        // Handle the case where "None" is selected
+        $("#course").html($("<option>").attr("value", "-- None --").html("-- None --"));
+        $("#yearLevel").html($("<option>").attr("value", "-- None --").html("-- None --"));
+    }
+    
+   
+
+    // Fetch courses based on the selected department
+    function GetCourseList(){
+    	try{
+    	    var courseSelect = document.getElementById("course");
+    		var departmentSelect = document.getElementById("department");
+    	    var selectedDepartment = document.getElementById("department").value;
+    		
+    	    courseSelect.innerHTML = "";
+    	    
+    	    $.ajax({
+    	        url: '../get-courses', method: 'GET',
+    	        data: { department: selectedDepartment }, // Correct parameter name
+    	        success: function (data) {
+    	            // Assuming data is a list of course names
+    	            
+    	            
+    	            // Add options based on the fetched data
+    	            for (var i = 0; i < data.length; i++) {
+    	                var option = document.createElement("option");
+    	                option.text = data[i];
+    	                option.value = data[i];
+    	                courseSelect.add(option);
+    	            }
+    	        },
+    	        error: function (Error) {
+    	            console.error("Error fetching courses: " + Error.message);
+    	        }
+    	    });    		
+    	}
+    	catch(Error){ 
+    		courseSelect.innerHTML = "";
+    		console.error("Error fetching courses: " + Error.message);
+    		}
+    }
+}
+
+function addOptions(selectElement, options) {
+    for (var i = 0; i < options.length; i++) {
+        var option = document.createElement("option");
+        option.text = options[i];
+        option.value = options[i];
+        selectElement.add(option);
+    }
+}
+
+//Phone number formatting
+    $(document).ready(function () {
+        $('#phoneNum').on('input', function () {
+            // Remove non-numeric characters
+            let phoneNumber = $(this).val().replace(/\D/g, '');
+
+            // Limit the length to 11 characters
+            phoneNumber = phoneNumber.substring(0, 10);
+
+            // Format the phone number
+            if (phoneNumber.length >= 4 && phoneNumber.length <= 6) {
+                phoneNumber = phoneNumber.replace(/^(\d{4})(\d{0,3})/, '$1-$2');
+            } else if (phoneNumber.length >= 7 && phoneNumber.length <= 10) {
+                phoneNumber = phoneNumber.replace(/^(\d{4})(\d{3})(\d{0,4})/, '$1-$2-$3');
+            }
+
+            // Update the input value
+            $(this).val(phoneNumber);
+
+            // Prevent further input after formatting is complete
+            if (phoneNumber.length === 10) {
+                $(this).off('input');
+            }
+        });
+    });
+</script>
+
+
 </body>
 </html>

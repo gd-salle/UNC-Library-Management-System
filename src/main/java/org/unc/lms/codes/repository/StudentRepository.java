@@ -25,19 +25,22 @@ public class StudentRepository {
 	
 	@Transactional
 	public boolean addStudent(Student s) {
-		try {
-			String sql = "INSERT INTO StudUsers(student_id, firstname, middlename, lastname, suffix, unc_email, course, phone_num) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"; 
-			jdbcTemplate.update(sql, s.getStudentId(), s.getFirstName(), s.getMiddleName(), s.getLastName(), s.getSuffix(), s.getUncEmail(), s.getCourse(), s.getPhoneNum()); 
-			return true; 
-		} catch (Exception e) {
-			logger.severe(e.getMessage());
-			return false; 
-		}
+	    try {
+	        String sql = "INSERT INTO Users(student_id, first_name, middle_name, last_name, suffix, unc_email, phone_num, dept_id, course_id,"
+	        		+ "  user_type, ez_name, password, librarycard_number, yearlevel) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	        jdbcTemplate.update(sql, s.getStudentId(), s.getFirstName(), s.getMiddleName(), s.getLastName(), s.getSuffix(),
+	        					s.getUncEmail(), s.getPhoneNum(), s.getDeptId(), s.getCourseId(), s.getUserType() , s.getEzName(), 
+	        					s.getPassword(), s.getLibraryCardNumber(), s.getYearLevel());
+	        return true;
+	    } catch (Exception e) {
+	        logger.severe(e.getMessage());
+	        return false;
+	    }
 	}
 	
 	public Student selectStudent(String studentId) {
-		 String sql = "SELECT student_id, firstname, middlename, lastname, suffix, unc_email, course, phone_num " +
-                 "FROM StudUsers WHERE student_id = ?";
+		String sql = "SELECT student_id, ez_name, first_name, middle_name, last_name, suffix, unc_email, phone_num, dept_id, course_id, user_type, librarycard_number, yearlevel " +
+	             "FROM Users WHERE student_id = ?";
 		 List<Student> student = jdbcTemplate.query(sql, new PreparedStatementSetter() {
 			 @Override
 			 public void setValues(PreparedStatement preparedStatement) throws SQLException {
@@ -47,26 +50,38 @@ public class StudentRepository {
 			 @Override
 			 public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
 				 String studentId = rs.getString("student_id"); 
-	             String firstName = rs.getString("firstname"); 
-	             String middleName = rs.getString("middlename"); 
-	             String lastName = rs.getString("lastname"); 
+				 String ezName = rs.getString("ez_name"); 
+	             String firstName = rs.getString("first_name"); 
+	             String middleName = rs.getString("middle_name"); 
+	             String lastName = rs.getString("last_name"); 
 	             String suffix = rs.getString("suffix"); 
 	             String uncEmail = rs.getString("unc_email"); 
-	             String course = rs.getString("course"); 
-	             String phoneNum = rs.getString("phone_num"); 
+//	             String course = rs.getString("course"); 
+	             String phoneNum = rs.getString("phone_num");
+	             String deptId = rs.getString("dept_id"); 
+	             String courseId = rs.getString("course_id"); 
+	             String userType = rs.getString("user_type"); 
+	             String libraryCardNum = rs.getString("librarycard_number"); 
+	             String yearLevel = rs.getString("yearlevel"); 
 	             
 				 Student s = new Student(); 
 				 
 				 s.setStudentId(studentId); 
+				 s.setEzName(ezName);
 				 s.setFirstName(firstName);
 				 s.setMiddleName(middleName);
 				 s.setLastName(lastName);
 				 s.setSuffix(suffix);
 				 s.setUncEmail(uncEmail);
-				 s.setCourse(course);
 				 s.setPhoneNum(phoneNum);
-			
+				 s.setDeptId(deptId);
+				 s.setCourseId(courseId);
+				 s.setUserType(userType);
+				 s.setLibraryCardNumber(libraryCardNum);
+				 s.setYearLevel(yearLevel);
 				 
+			
+
 				 return s; 
 			 }
 		 }); 
