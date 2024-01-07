@@ -1,18 +1,13 @@
 package org.unc.lms.codes.repository;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementSetter;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.unc.lms.codes.model.data.Book;
-import org.unc.lms.codes.model.data.Student;
 
 @Repository
 public class BookRepository {
@@ -57,4 +52,22 @@ private static Logger logger = Logger.getLogger(StudentRepository.class.getName(
             return book;
         });
     }
+	
+	public List<Book> searchBooks(String keyword) {
+        String sql = "SELECT * FROM book WHERE lower(title) LIKE ?";
+        String searchTerm = "%" + keyword.toLowerCase() + "%";
+
+        return jdbcTemplate.query(sql, preparedStatement -> preparedStatement.setString(1, searchTerm),
+                (rs, rowNum) -> {
+                    Book book = new Book();
+                    book.setId(rs.getLong("id"));
+                    book.setTitle(rs.getString("title"));
+                    book.setAuthor(rs.getString("author"));
+                    book.setGenre(rs.getString("genre"));
+                    book.setYearPublished(rs.getString("yearpublished"));
+                    return book;
+                });
+    }
+
+
 }
