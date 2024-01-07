@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.unc.lms.codes.model.data.Book;
 import org.unc.lms.codes.model.form.BookCreationForm;
 import org.unc.lms.codes.services.BookService;
@@ -50,10 +51,19 @@ public class BookController {
     	return "EditBook";
     }
     
-    @RequestMapping(path="/collection", method=RequestMethod.GET)
-    public String getBookCollection(Model model) {
-    	List<Book> books = bookService.getAllBooks();
+    @RequestMapping(path = "/book/collection", method = RequestMethod.GET)
+    public String getBookCollection(@RequestParam(name = "search", required = false) String searchQuery, Model model) {
+        List<Book> books;
+
+        if (searchQuery != null && !searchQuery.isEmpty()) {
+            books = bookService.searchBooks(searchQuery);
+        } else {
+            books = bookService.getAllBooks();
+        }
+
         model.addAttribute("books", books);
+        model.addAttribute("bookCreationForm", new BookCreationForm()); // Add an empty form for creating new books
         return "BookCollection";
     }
+
 }
