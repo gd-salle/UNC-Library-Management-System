@@ -4,18 +4,11 @@ import java.util.Date;
 
 public class Book {
 
-	private int id;
 	private String title;
 	private String author;
 	private String genre;
-	private Date yearPublished;
+	private String yearPublished;
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public String getTitle() {
 		return title;
 	}
@@ -34,10 +27,10 @@ public class Book {
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
-	public Date getYearPublished() {
+	public String getYearPublished() {
 		return yearPublished;
 	}
-	public void setYearPublished(Date yearPublished) {
+	public void setYearPublished(String yearPublished) {
 		this.yearPublished = yearPublished;
 	}
 }

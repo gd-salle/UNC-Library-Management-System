@@ -71,60 +71,60 @@
     </header>
     
     <main>
-	<div class="container" style="background-color: #F5F5F5;">
-	    <div class="recommendation">
-	        <h1>Recommended for you</h1>
-	        
-	        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
-	            <div class="col">
-	                <div class="card">
-	                    <img th:src="@{/img/dbms-book-cover.jpg}" class="card-img-top custom-card-img" alt="...">
-	                    <div class="card-body">
-	                        <h5 class="card-title">Card title</h5>
-	                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-	                        <a href="#" class="btn btn-primary">Click to View</a>
-	                    </div>
-	                </div>
-	            </div>
-	            
-	            <div class="col">
-	                <div class="card">
-	                    <img th:src="@{/img/java-programming-book-cover.jpg}" class="card-img-top custom-card-img" alt="...">
-	                    <div class="card-body">
-	                        <h5 class="card-title">Card title</h5>
-	                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-	                        <a href="#" class="btn btn-primary">Click to View</a>
-	                    </div>
-	                </div>
-	            </div>
-	            
-	            <div class="col">
-	                <div class="card">
-	                    <img th:src="@{/img/dsa-book-cover.jpg}" class="card-img-top custom-card-img" alt="...">
-	                    <div class="card-body">
-	                        <h5 class="card-title">Card title</h5>
-	                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-	                        <a href="#" class="btn btn-primary">Click to View</a>
-	                    </div>
-	                </div>
-	            </div>
-	            
-	            <div class="col">
-	                <div class="card">
-	                    <img th:src="@{/img/ui-ux-book-cover.jpg}" class="card-img-top custom-card-img" alt="...">
-	                    <div class="card-body">
-	                        <h5 class="card-title">Card title</h5>
-	                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-	                        <a href="#" class="btn btn-primary">Click to View</a>
-	                    </div>
-	                </div>
-	            </div>
+	<div class="container mt-5">
+	    <h1>Create Book</h1>
+	
+	    <!-- Book Creation Form -->
+	    <form th:action="@{/book/creation}" th:object="${bookCreationForm}" method="post">
+	        <!-- Title Input -->
+	        <div class="mb-3">
+	            <label for="title" class="form-label">Title:</label>
+	            <input type="text" th:field="*{title}" class="form-control" id="title" required>
+	            <div class="invalid-feedback">Please provide a title.</div>
 	        </div>
-	        
-	    </div>
-	</div>
+	
+	        <!-- Author Input -->
+	        <div class="mb-3">
+	            <label for="author" class="form-label">Author:</label>
+	            <input type="text" th:field="*{author}" class="form-control" id="author" required>
+	            <div class="invalid-feedback">Please provide an author.</div>
+	        </div>
+	
+	        <!-- Genre Input -->
+	        <div class="mb-3">
+	            <label for="genre" class="form-label">Genre:</label>
+	            <input type="text" th:field="*{genre}" class="form-control" id="genre" required>
+	            <div class="invalid-feedback">Please provide a genre.</div>
+	        </div>
+	
+	        <!-- Year Published Input -->
+	        <div class="mb-3">
+	            <label for="yearPublished" class="form-label">Year Published:</label>
+	            <input type="text" th:field="*{yearPublished}" class="form-control" id="yearPublished" required>
+	            <div class="invalid-feedback">Please provide the year of publication.</div>
+	        </div>
+	
+	        <!-- Submit Button -->
+	        <button type="submit" value="submit" class="btn btn-primary">Create Book</button>
+	    </form>
+	    
+		<!-- Success Modal -->
+		<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <h5 class="modal-title" id="successModalLabel">Success!</h5>
+		                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		            </div>
+		            <div class="modal-body">
+		                Book successfully added.
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	    
+	</div>	
 
-        
     </main>
     <footer class="pt-3 pb-3" style="background-color: #3D3D3D;">
         <div class="container">

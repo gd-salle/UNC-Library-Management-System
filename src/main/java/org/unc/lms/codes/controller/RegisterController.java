@@ -62,8 +62,6 @@ public class RegisterController {
 	}
 
 
-
-
 	@RequestMapping(path = "register", method = RequestMethod.POST)
 	public String showLibraryCard(Model model, @ModelAttribute LibraryRegistrationForm libraryRegistrationForm) {
 //		Add the data of the form to the Student Model
