@@ -1,6 +1,5 @@
 @charset "ISO-8859-1";
 
-<<<<<<< HEAD
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -8,8 +7,10 @@ body {
 
 .navbar {
     background-color: #cc0000;
-    padding: 15px;
     color: white;
+    z-index: 100;
+    position: fixed;
+    width: 100%; 
 }
 
 .logo-container {
@@ -47,31 +48,99 @@ body {
     max-width: 400px;
   }
   .modal-dialog .modal-content {
-    padding: 1rem;
+    padding: 0rem;
   }
 }
 .modal-header .close {
   margin-top: -1.5rem;
+  color: white; 
+}
+.modal-body {
+	padding: 2rem !important; 
 }
 
 .form-title {
-  margin: -2rem 0rem 2rem;
+  margin: 0rem 0rem 2rem;
+  color: black; 
+}
+.custom-info-btn {
+    background-color: #cc0000 !important; 
+    color: white !important; 
+    width: 48% !important;
 }
 
 .btn-round {
   border-radius: 3rem;
-}
-
-.delimiter {
-  padding: 1rem;
-}
-
-.social-buttons .btn {
-  margin: 0 0.5rem 1rem;
+  background-color: #cc0000; 
 }
 
 .signup-section {
   padding: 0.3rem 0rem;
 }
-=======
->>>>>>> 88fd02b021ce50dd65303a37eb00f45ab3cd2caa
+.text-dark {
+    color: #000 !important; 
+}
+
+/* remember me */
+.material-checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #777777;
+  cursor: pointer;
+  margin: 0; 
+}
+
+.material-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin-right: 8px;
+}
+
+.checkmark {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  border: 2px solid #cc0000;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.material-checkbox input[type="checkbox"]:checked ~ .checkmark {
+  background-color: #3D3D3D;
+  border-color: #3D3D3D;
+}
+
+.material-checkbox input[type="checkbox"]:checked ~ .checkmark:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 4px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.material-checkbox input[type="checkbox"]:focus ~ .checkmark {
+  box-shadow: 0 0 0 2px #dfec5065;
+}
+
+.material-checkbox:hover input[type="checkbox"] ~ .checkmark {
+  border-color: #cc0000;
+}
+
+.material-checkbox input[type="checkbox"]:disabled ~ .checkmark {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.material-checkbox input[type="checkbox"]:disabled ~ .checkmark:hover {
+  border-color: #cc0000;
+}
+

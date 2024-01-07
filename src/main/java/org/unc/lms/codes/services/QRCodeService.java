@@ -6,13 +6,16 @@ import org.unc.lms.codes.model.data.Student;
 @Service
 public class QRCodeService {
 
-    public String generateQRCodeContent(Student student) {
-    	// not final context
+public String generateQRCodeContent(Student student) {
+
     	
-        return student.getFirstName() + " " + student.getLastName() +
+        return "Name: " + student.getFullName() +
                ", Student ID: " + student.getStudentId() +
-               ", Course: " + student.getCourse() +
+               ", Department: " + student.getDeptId() + 
+               ", Course: " + student.getCourseId() +
+               ", Year/Grade Level: " + student.getYearLevel() +
                ", UNC Email: " + student.getUncEmail() +
-               ", Phone Number: " + student.getPhoneNum();
+               ", Phone Number: " + student.getPhoneNum() + 
+               ", Library Card Number: " + student.getLibraryCardNumber();
     }
 }

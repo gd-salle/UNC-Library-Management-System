@@ -13,28 +13,43 @@ public class StudentService {
 	
 	@Autowired
 	public StudentRepository studentRepository; 
+	@Autowired
+	public DepartmentService departmentService; 
+	@Autowired
+	public CoursesService coursesService; 
 	
-	private static Logger logger = Logger.getLogger(StudentService.class.getName());
+	private static Logger logger = Logger.getLogger(StudentRepository.class.getName());
 	
 	public boolean addStudentData(LibraryRegistrationForm libraryRegistrationForm) {
-		try {
-			//Map data from LibraryRegistrationForm to Student
-			Student s = new Student(); 
-			s.setStudentId(libraryRegistrationForm.getStudentId());
-			s.setFirstName(libraryRegistrationForm.getFirstName());
-			s.setMiddleName(libraryRegistrationForm.getMiddleName());
-			s.setLastName(libraryRegistrationForm.getLastName()); 
-			s.setSuffix(libraryRegistrationForm.getSuffix());
-			s.setUncEmail(libraryRegistrationForm.getUncEmail());
-			s.setCourse(libraryRegistrationForm.getCourse());
-			s.setPhoneNum(libraryRegistrationForm.getPhoneNum());
-			
-			//Save the student to the database
-			return studentRepository.addStudent(s); 
-		} catch(Exception e) {
-			logger.severe(e.getMessage());
-			return false; 
-		}
+		String deptName = libraryRegistrationForm.getDepartment();
+		String courseName = libraryRegistrationForm.getCourse(); 
+		
+        String deptId = departmentService.getDeptIdByDeptName(deptName);
+        String courseId = coursesService.getCourseIdByCourseName(courseName); 
+	    try {
+	        // Map data from LibraryRegistrationForm to Student
+	        Student s = new Student();
+	        s.setStudentId(libraryRegistrationForm.getStudentId());
+	        s.setEzName(libraryRegistrationForm.getEzName());
+	        s.setPassword(libraryRegistrationForm.getPassword());
+	        s.setFirstName(libraryRegistrationForm.getFirstName());
+	        s.setMiddleName(libraryRegistrationForm.getMiddleName());
+	        s.setLastName(libraryRegistrationForm.getLastName());
+	        s.setSuffix(libraryRegistrationForm.getSuffix());
+	        s.setUncEmail(libraryRegistrationForm.getUncEmail());
+	        s.setCourseId(courseId);
+	        s.setPhoneNum(libraryRegistrationForm.getPhoneNum());
+	        s.setDeptId(deptId);
+	        s.setUserType(libraryRegistrationForm.getUserType());
+	        s.setLibraryCardNumber(libraryRegistrationForm.getLibraryCardNumber());
+	        s.setYearLevel(libraryRegistrationForm.getYearLevel());
+
+	        // Save the student to the database
+	        return studentRepository.addStudent(s);
+	    } catch (Exception e) {
+	        logger.severe(e.getMessage());
+	        return false;
+	    }
 	}
 	
 	public Student getStudentData(String studentId) { 
