@@ -3,12 +3,19 @@ package org.unc.lms.codes.model.data;
 import java.util.Date;
 
 public class Book {
-
+	
+	private Long id;
 	private String title;
 	private String author;
 	private String genre;
 	private String yearPublished;
 	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getTitle() {
 		return title;
 	}
