@@ -20,9 +20,9 @@ public class BookService {
         return bookRepository.getAllBooks();
     }
 	
-	public List<Book> searchBooks(String keyword){
-		return null;
-	}
+	public List<Book> searchBooks(String keyword) {
+        return bookRepository.searchBooks(keyword);
+    }
 	
 	public Book findBookByID(Long id) {
 		return null;
