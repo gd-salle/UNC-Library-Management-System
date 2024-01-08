@@ -23,13 +23,15 @@
 	<header>
 		<nav class="navbar static-top navbar-dark" style="background-color: #cc0000;">
 		  <div class="container-fluid">
-		    <div class="logo-container">
+		    <a class="navbar-brand" th:href="@{/user/home}">
+		    	<span class="logo-container">
 		            <img th:src="@{/img/unc-logo.png}" alt="Logo" class="logo">
-		            <div class="text-container">
-		                <span class="main-text">Library Management System</span>
-		                <span class="sub-text">University of Nueva Caceres</span>
-		            </div>
-		    </div>
+		            <span class="text-container">
+		            	<span class="main-text">Library Management System</span>
+		            	<span class="sub-text">University of Nueva Caceres</span>
+		        	</span>
+		        </span>
+		    </a>
 		    <div class="d-flex align-items-center">
                 <button class="btn btn-transparent position-relative" style="border: none;">
 				    <span class="bi bi-bell text-white" style="font-size: 1.5rem;"></span>
@@ -50,13 +52,13 @@
 		      <div class="offcanvas-body">
 		        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 		          <li class="nav-item">
-		            <a class="nav-link active" aria-current="page" href="#">Home</a>
+		            <a class="nav-link active" aria-current="page" th:href="@{/user/home}">Home</a>
 		          </li>
 		          <li class="nav-item">
 		            <a class="nav-link" href="#">Profile Manager</a>
 		          </li>
 		          <li class="nav-item">
-		            <a class="nav-link" href="#">Book Collection</a>
+		            <a class="nav-link" th:href="@{/book/collection}">Book Collection</a>
 		          </li>
 		          <li class="nav-item">
 		            <a class="nav-link" href="#">Logout</a>
