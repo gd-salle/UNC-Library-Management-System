@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Add New Book</title>
+	<link rel="stylesheet" th:href="@{/css/main.css}" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<style>
+.custom-card-img {
+    height: 300px; /* Adjust the height as needed */
+    object-fit: fill; /* Ensures the image covers the entire container */
+}
+</style>
+<body>
+	<header>
+		<nav class="navbar static-top navbar-dark" style="background-color: #cc0000;">
+		  <div class="container-fluid">
+		    <div class="logo-container">
+		            <img th:src="@{/img/unc-logo.png}" alt="Logo" class="logo">
+		            <div class="text-container">
+		                <span class="main-text">Library Management System</span>
+		                <span class="sub-text">University of Nueva Caceres</span>
+		            </div>
+		    </div>
+		    <div class="d-flex align-items-center">
+                <button class="btn btn-transparent position-relative" style="border: none;">
+				    <span class="bi bi-bell text-white" style="font-size: 1.5rem;"></span>
+				</button>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+		    
+		    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="background-color: #cc0000;">
+		    
+		      <div class="offcanvas-header">
+		        <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">User</h5>
+		        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		      </div>
+		      
+		      <div class="offcanvas-body">
+		        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+		          <li class="nav-item">
+		            <a class="nav-link active" aria-current="page" href="#">Home</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="#">Profile Manager</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="#">Book Collection</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="#">Logout</a>
+		          </li>
+		        </ul>
+		      </div>
+		      
+		    </div>
+		    
+		  </div>
+		</nav>
+    </header>
+    
+    <main>
+		<div class="container mt-5">
+		    <h1>Add New Book</h1>
+		    
+		    <!-- Success Alert -->
+		    <div th:if="${success}" class="alert alert-success" role="alert">
+		        <span th:text="${successMessage}"></span>
+		    </div>
+		    
+		    <!-- Danger Alert -->
+		    <div th:if="${fail}" class="alert alert-danger" role="alert">
+		        <span th:text="${errorMessage}"></span>
+		    </div>
+		    
+		    <!-- Book Creation Form -->
+		    <form th:action="@{/book/add}" th:object="${bookCreationForm}" method="post">
+		        <!-- Title Input -->
+		        <div class="mb-3">
+		            <label for="title" class="form-label">Title:</label>
+		            <input type="text" th:field="*{title}" class="form-control" id="title" required>
+		            <div class="invalid-feedback">Please provide a title.</div>
+		        </div>
+		
+		        <!-- Author Input -->
+		        <div class="mb-3">
+		            <label for="author" class="form-label">Author:</label>
+		            <input type="text" th:field="*{author}" class="form-control" id="author" required>
+		            <div class="invalid-feedback">Please provide an author.</div>
+		        </div>
+		
+		        <!-- Genre Input -->
+		        <div class="mb-3">
+		            <label for="genre" class="form-label">Genre:</label>
+		            <input type="text" th:field="*{genre}" class="form-control" id="genre" required>
+		            <div class="invalid-feedback">Please provide a genre.</div>
+		        </div>
+		
+		        <!-- Year Published Input -->
+		        <div class="mb-3">
+		            <label for="yearPublished" class="form-label">Year Published:</label>
+		            <input type="date" th:field="*{yearPublished}" class="form-control" id="yearPublished" required>
+		            <div class="invalid-feedback">Please provide the year of publication.</div>
+		        </div>
+		        
+		        <!-- Submit Button -->
+		        <button type="submit" value="submit" class="btn btn-primary">Create Book</button>
+		    </form>
+		</div>
+
+
+    </main>
+    <footer>
+        <div class="container d-flex flex-column">
+            <div class="row">
+                <!-- Left Section - Logo and Name -->
+                <div class="col-lg-4 text-left d-flex justify-content-center align-items-center">
+                    <div class="d-flex align-items-center">
+                        <img th:src="@{/img/unc-logo.png}" alt="Logo" width="75" height="75">
+                        <div class="ml-3 text-center">
+                            <p class="mb-0 text-white">UNIVERSITY OF</p>
+                            <p class="mb-0 text-white">NUEVA CACERES</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Middle Section - Address -->
+                <div class="col-lg-4 text-center d-flex align-items-center justify-content-center">
+                    <div class="pt-3" style="font-size: 15px; line-height: 0.1;">
+                        <p class="text-white">J. Hernandez Avenue, Naga City 4404</p>
+                        <p class="text-white">095611301775 | 09071566898</p>
+                        <p><a href="" class="text-white">info@unc.edu.ph</a></p>
+                        <p><a href="" class="text-white">admission@unc.edu.ph</a></p>
+                    </div>
+                </div>
+
+                <!-- Right Section - Social Media Links -->
+                <div class="col-lg-4 text-right d-flex align-items-center justify-content-center">
+                    <div class="pt-3">
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">Facebook</a></li>
+                            <li><a href="#" class="text-white">Twitter</a></li>
+                            <li><a href="#" class="text-white">Instagram</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center text-white" style="background-color: #919191; width: 100%;">
+            <span>Copyright © 2023. University of Nueva Caceres. All Rights Reserved.</span>
+        </div>
+    </footer>
+</body>
+</html>

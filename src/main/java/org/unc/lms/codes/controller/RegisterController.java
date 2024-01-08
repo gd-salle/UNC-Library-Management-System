@@ -96,8 +96,9 @@ public class RegisterController {
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.emptyList());
 	    }
 	}
-     
-	@RequestMapping(path = "/register", method = RequestMethod.POST)
+
+
+	@RequestMapping(path = "register", method = RequestMethod.POST)
 	public String showLibraryCard(Model model, @ModelAttribute LibraryRegistrationForm libraryRegistrationForm) {
 		studentService.addStudentData(libraryRegistrationForm);
 	    
