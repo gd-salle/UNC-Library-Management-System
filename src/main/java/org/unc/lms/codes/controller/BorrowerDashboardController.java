@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/lms")
-public class OverdueController {
+public class BorrowerDashboardController {
 	
-	@RequestMapping(path="/user/dashboard/overdues", method = RequestMethod.GET)
-	public String overduePage(Model model) {
-		return "overduePage";
+	@RequestMapping(path = "/user/dashboard", method = RequestMethod.GET)
+	public String viewDashboard(Model model) {
+		return null;
 	}
+	
 }
