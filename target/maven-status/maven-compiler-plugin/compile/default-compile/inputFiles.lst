@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\controller\RegisterController.java
 C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\components\package-info.java
 C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\model\data\package-info.java
@@ -25,6 +26,8 @@ C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java
 C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\model\form\LibraryRegistrationForm.java
 C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\services\StudentService.java
 =======
+=======
+>>>>>>> e15223d18a056b9bd30cb7a916cf635882131250
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\model\data\Student.java
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\controller\BookController.java
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\controller\LandingPageController.java
@@ -48,4 +51,7 @@ C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\code
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\components\package-info.java
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\SpringMVContainerConfig.java
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\services\StudentService.java
+<<<<<<< HEAD
 >>>>>>> 3ce7664 (added book data)
+=======
+>>>>>>> e15223d18a056b9bd30cb7a916cf635882131250
