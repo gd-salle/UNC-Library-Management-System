@@ -89,6 +89,7 @@
 	    <version>3.5.2</version>
 	</dependency>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools -->
 	<dependency>
@@ -100,6 +101,8 @@
 
 =======
 >>>>>>> 844c6f3 (edit book functionalities done)
+=======
+>>>>>>> 8387001 (some errors)
 
   </dependencies>
   
