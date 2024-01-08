@@ -72,7 +72,7 @@ public class BookService {
 	    return false; // Return false if the update fails
 	}
 	
-	public void deleteBook() {
-		
-	}
+	public boolean deleteBook(Long id) {
+        return bookRepository.deleteBook(id);
+    }
 }
