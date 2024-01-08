@@ -51,11 +51,11 @@ public class BookController {
     @RequestMapping(path="/book/edit/{id}", method = RequestMethod.GET)
     public String bookEdit(Model model, @PathVariable Long id) {
         Book b = bookService.getBookById(id);
-        model.addAttribute("updateForm", b);  // Use "book" as the key
+        model.addAttribute("book", b);  // Use "book" as the key
         return "EditBook";
     }
 
-    @RequestMapping(path="/book/edit/{id}")
+    @RequestMapping(path="/book/edit/{id}", method = RequestMethod.POST)
     public String updateBook(Model model, @PathVariable Long id, @ModelAttribute BookForm updateForm) {
     	boolean updated = bookService.updateBook(id, updateForm);
 

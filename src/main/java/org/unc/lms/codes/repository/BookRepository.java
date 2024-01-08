@@ -30,8 +30,8 @@ private static Logger logger = Logger.getLogger(StudentRepository.class.getName(
             }
 
             // If no duplicate found, proceed with insertion
-            String insertSql = "INSERT INTO book(title, author, genre, yearpublished) VALUES (?,?,?,?)";
-            jdbcTemplate.update(insertSql, b.getTitle(), b.getAuthor(), b.getGenre(), b.getYearPublished());
+            String insertSql = "INSERT INTO book(title, author, genre, yearpublished, description) VALUES (?,?,?,?,?)";
+            jdbcTemplate.update(insertSql, b.getTitle(), b.getAuthor(), b.getGenre(), b.getYearPublished(), b.getDescription());
 
             return true;
         } catch (Exception e) {
@@ -49,6 +49,7 @@ private static Logger logger = Logger.getLogger(StudentRepository.class.getName(
             book.setAuthor(rs.getString("author"));
             book.setGenre(rs.getString("genre"));
             book.setYearPublished(rs.getString("yearpublished"));
+            book.setDescription(rs.getString("description"));
             return book;
         });
     }
@@ -79,6 +80,7 @@ private static Logger logger = Logger.getLogger(StudentRepository.class.getName(
                 book.setAuthor(rs.getString("author"));
                 book.setGenre(rs.getString("genre"));
                 book.setYearPublished(rs.getString("yearpublished"));
+                book.setDescription(rs.getString("description"));
                 return book;
             }, id);
 
@@ -90,8 +92,8 @@ private static Logger logger = Logger.getLogger(StudentRepository.class.getName(
     }
 	
 	public void updateBook(Book book) {
-        String sql = "UPDATE book SET title = ?, author = ?, genre = ?, yearpublished = ? WHERE id = ?";
-        jdbcTemplate.update(sql, book.getTitle(), book.getAuthor(), book.getGenre(), book.getYearPublished(), book.getId());
+        String sql = "UPDATE book SET title = ?, author = ?, genre = ?, yearpublished = ?, description = ? WHERE id = ?";
+        jdbcTemplate.update(sql, book.getTitle(), book.getAuthor(), book.getGenre(), book.getYearPublished(), book.getDescription(), book.getId());
     }
 	
 	public boolean deleteBook(Long id) {
