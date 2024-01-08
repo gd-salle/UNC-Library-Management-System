@@ -101,7 +101,7 @@ private static Logger logger = Logger.getLogger(StudentRepository.class.getName(
 
             return rowsAffected > 0;
         } catch (Exception e) {
-            // Log the exception or handle it as needed
+        	logger.severe(e.getMessage());
             return false;
         }
     }
