@@ -14,17 +14,18 @@
 <body>
    <header>
         <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
-        	<div class="container-fluid">
-        		<div class="logo-container">
-		            <img th:src="@{/img/unc-logo.png}" alt="Logo" class="logo">
-		            <div class="text-container">
-		                <span class="main-text">Library Management System</span>
-		                <span class="sub-text">University of Nueva Caceres</span>
-		            </div>
-		        </div>
-				<!--Button  -->
-        	</div>
-        </nav>
+		    <div class="container-fluid">
+		        <a class="navbar-brand" th:href="@{/}">
+		            <span class="logo-container">
+		                <img th:src="@{/img/unc-logo.png}" alt="Logo" class="logo">
+		                <span class="text-container">
+		                    <span class="main-text">Library Management System</span>
+		                    <span class="sub-text">University of Nueva Caceres</span>
+		                </span>
+		            </span>
+		        </a>
+		    </div>
+		</nav>
     </header>
     
     <main>
