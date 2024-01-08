@@ -4,7 +4,7 @@ import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.unc.lms.codes.model.data.Student;
+import org.unc.lms.codes.model.data.User;
 import org.unc.lms.codes.model.form.LibraryRegistrationForm;
 import org.unc.lms.codes.repository.StudentRepository;
 
@@ -28,7 +28,7 @@ public class StudentService {
         String courseId = coursesService.getCourseIdByCourseName(courseName); 
 	    try {
 	        // Map data from LibraryRegistrationForm to Student
-	        Student s = new Student();
+	        User s = new User();
 	        s.setStudentId(libraryRegistrationForm.getStudentId());
 	        s.setEzName(libraryRegistrationForm.getEzName());
 	        s.setPassword(libraryRegistrationForm.getPassword());
@@ -52,7 +52,7 @@ public class StudentService {
 	    }
 	}
 	
-	public Student getStudentData(String studentId) { 
+	public User getStudentData(String studentId) { 
 		return studentRepository.selectStudent(studentId); 
 	}
 

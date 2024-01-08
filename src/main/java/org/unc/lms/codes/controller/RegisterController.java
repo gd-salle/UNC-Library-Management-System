@@ -17,13 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.unc.lms.codes.components.QRCodeGenerator;
-import org.unc.lms.codes.model.data.Student;
+import org.unc.lms.codes.model.data.User;
 import org.unc.lms.codes.model.form.LibraryRegistrationForm;
 import org.unc.lms.codes.services.CoursesService;
 import org.unc.lms.codes.services.DepartmentService;
 import org.unc.lms.codes.services.LibraryCardNumberService;
 import org.unc.lms.codes.services.QRCodeService;
 import org.unc.lms.codes.services.StudentService;
+import org.unc.lms.codes.services.UserService;
 
 import com.google.zxing.WriterException;
 
@@ -34,6 +35,8 @@ public class RegisterController {
 	 private QRCodeGenerator qrCodeGenerator;
 	 @Autowired
 	 private StudentService studentService; 
+	 @Autowired
+	 private UserService userService; 
 	 @Autowired
 	 private QRCodeService 	qRCodeService; 
 	 @Autowired
@@ -61,10 +64,10 @@ public class RegisterController {
 		
         return "LibraryCardRegisterView";
     }    
-	
+	 
 	@GetMapping("/student/qr")
 	public ResponseEntity<byte[]> getQRCode(String studentId) {
-		Student student = studentService.getStudentData(studentId); 
+		User student = userService.getStudentData(studentId); 
 	    String text = qRCodeService.generateQRCodeContent(student);
 	    //debugging
 	    System.out.println("Student data received: " + text);
@@ -99,7 +102,7 @@ public class RegisterController {
      
 	@RequestMapping(path = "/register", method = RequestMethod.POST)
 	public String showLibraryCard(Model model, @ModelAttribute LibraryRegistrationForm libraryRegistrationForm) {
-		studentService.addStudentData(libraryRegistrationForm);
+		userService.addStudentData(libraryRegistrationForm);
 	    
 	    System.out.println("Library Registration Form data: " + libraryRegistrationForm.toString());
 	    

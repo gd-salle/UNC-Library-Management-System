@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import org.unc.lms.codes.model.data.Student;
+import org.unc.lms.codes.model.data.User;
 
 
 @Repository
@@ -24,7 +24,7 @@ public class StudentRepository {
 	public JdbcTemplate jdbcTemplate;
 	
 	@Transactional
-	public boolean addStudent(Student s) {
+	public boolean addStudent(User s) {
 	    try {
 	        String sql = "INSERT INTO Users(student_id, first_name, middle_name, last_name, suffix, unc_email, phone_num, dept_id, course_id,"
 	        		+ "  user_type, ez_name, password, librarycard_number, yearlevel) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -36,19 +36,19 @@ public class StudentRepository {
 	        logger.severe(e.getMessage());
 	        return false;
 	    }
-	}
+	} 
 	
-	public Student selectStudent(String studentId) {
+	public User selectStudent(String studentId) {
 		String sql = "SELECT student_id, ez_name, first_name, middle_name, last_name, suffix, unc_email, phone_num, dept_id, course_id, user_type, librarycard_number, yearlevel " +
 	             "FROM Users WHERE student_id = ?";
-		 List<Student> student = jdbcTemplate.query(sql, new PreparedStatementSetter() {
+		 List<User> student = jdbcTemplate.query(sql, new PreparedStatementSetter() {
 			 @Override
 			 public void setValues(PreparedStatement preparedStatement) throws SQLException {
 		            preparedStatement.setString(1, studentId);
 		        }
-		 }, new RowMapper<Student>() {
+		 }, new RowMapper<User>() {
 			 @Override
-			 public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
+			 public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 				 String studentId = rs.getString("student_id"); 
 				 String ezName = rs.getString("ez_name"); 
 	             String firstName = rs.getString("first_name"); 
@@ -56,7 +56,6 @@ public class StudentRepository {
 	             String lastName = rs.getString("last_name"); 
 	             String suffix = rs.getString("suffix"); 
 	             String uncEmail = rs.getString("unc_email"); 
-//	             String course = rs.getString("course"); 
 	             String phoneNum = rs.getString("phone_num");
 	             String deptId = rs.getString("dept_id"); 
 	             String courseId = rs.getString("course_id"); 
@@ -64,7 +63,7 @@ public class StudentRepository {
 	             String libraryCardNum = rs.getString("librarycard_number"); 
 	             String yearLevel = rs.getString("yearlevel"); 
 	             
-				 Student s = new Student(); 
+				 User s = new User(); 
 				 
 				 s.setStudentId(studentId); 
 				 s.setEzName(ezName);
@@ -87,5 +86,8 @@ public class StudentRepository {
 		 }); 
 		 return student.isEmpty() ? null : student.get(0);
 	}
+	
+	
+	
 	
 }

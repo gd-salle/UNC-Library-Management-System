@@ -22,7 +22,7 @@ public class LibraryCardNumberService {
             }
         }
     }
-
+ 
     private boolean isUnique(String number) {
         return !generatedNumbers.contains(number);
     }
@@ -36,4 +36,4 @@ public class LibraryCardNumberService {
         }
         return stringBuilder.toString();
     }
-}
+}    

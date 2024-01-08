@@ -1,15 +1,15 @@
 package org.unc.lms.codes.services;
 
 import org.springframework.stereotype.Service;
-import org.unc.lms.codes.model.data.Student;
+import org.unc.lms.codes.model.data.User;
 
 @Service
 public class QRCodeService {
 
-public String generateQRCodeContent(Student student) {
+public String generateQRCodeContent(User student) {
 
     	
-        return "Name: " + student.getFullName() +
+        return "Name: " + student.getFirstName() +
                ", Student ID: " + student.getStudentId() +
                ", Department: " + student.getDeptId() + 
                ", Course: " + student.getCourseId() +

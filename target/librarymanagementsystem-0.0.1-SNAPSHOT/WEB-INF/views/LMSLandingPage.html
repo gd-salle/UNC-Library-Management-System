@@ -117,7 +117,11 @@
 	        </div>
 	        
 	    </div>
-	</div>
+	</div><!-- Include this wherever you want the logout button -->
+	<form th:action="@{/logout}" method="post" id="logoutForm">
+	    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+	    <a th:href="@{/login}" onclick="document.getElementById('logoutForm').submit()">Logout</a>
+	</form>
 
         
     </main>

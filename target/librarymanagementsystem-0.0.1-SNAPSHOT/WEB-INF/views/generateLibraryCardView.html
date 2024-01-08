@@ -27,40 +27,60 @@
         </nav>
     </header>
     
+    <div class="row">
+    	<div class="col-md-6">
+			<div class="card">
+			    <div class="card-header">
+					<!-- header  -->
+					<span class="image"><img th:src="@{${qrCodeUrl}}" alt="QR Code" /></span>  
+				</div>
+				<div class="card-body">
+					<span class="name"><span th:text="${libraryRegistrationForm.fullName}"></span>, <span th:text="${libraryRegistrationForm.yearLevel}"></span></span><br>
+					<span class="job-title"><u><span th:text="${libraryRegistrationForm.course}"></span></u></span>
+					<br>
+					<span class="job-title"><span th:text="${libraryRegistrationForm.department}"></span></span>
+					<div class="bio">
+						<span th:text="${libraryRegistrationForm.uncEmail}"></span>
+						<br>
+						<span th:text="${libraryRegistrationForm.phoneNum}"></span>
+					</div>
+				</div>
+			
+			    <div class="card-footer">
+			        <div class="stats">
+			            <div class="stat">
+							<span class="label">Library Card</span>
+							<span class="value"><span th:text="${libraryRegistrationForm.libraryCardNumber}"></span></span>
+			            </div>
+			            <div class="stat">
+							<span class="label">Student Id</span>
+							<span class="value"><span th:text="${libraryRegistrationForm.studentId}"></span></span>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+    	</div>
+    	<div class="col-md-6">
+    		<!-- Instruction Section -->
+		    <div class="instruction-section text-center mt-4">
+		        <h4>How to Use Your Library Card</h4>
+		        <p>Your library card serves as your official identification for accessing library resources. Please follow these instructions:</p>
+		        <ol>
+		            <li class="text-left">Present your library card at the library entrance for access.</li>
+		            <li class="text-left">Ensure that your library card is visible when borrowing books or materials.</li>
+		            <li class="text-left">For any issues with your library card, contact the library administration.</li>
+		        </ol>
+		        <p>To download your library card for digital use, click the "Download Library Card" button above.</p>
+		    </div>
+		    <button class="button"  onclick="downloadLibraryCard()">
+				<span class="button-content">Download Library Card </span>
+    	</div>
+    </div>
     
-	<div class="card">
-	    <div class="card-header">
-	          <!-- header  -->
-	           <span class="image"><img th:src="@{${qrCodeUrl}}" alt="QR Code" /></span>  
-	    </div>
+    
 	
-	    <div class="card-body">
-	        <span class="name"><span th:text="${libraryRegistrationForm.fullName}"></span>, <span th:text="${libraryRegistrationForm.yearLevel}"></span></span><br>
-	        <span class="job-title"><u><span th:text="${libraryRegistrationForm.course}"></span></u></span>
-	        <br>
-	        <span class="job-title"><span th:text="${libraryRegistrationForm.department}"></span></span>
-	        <div class="bio">
-	        	<span th:text="${libraryRegistrationForm.uncEmail}"></span>
-	        	<br>
-	        	<span th:text="${libraryRegistrationForm.phoneNum}"></span>
-	        </div>
-	    </div>
-
-	    <div class="card-footer">
-	        <div class="stats">
-	            <div class="stat">
-	              <span class="label">Library Card</span>
-	              <span class="value"><span th:text="${libraryRegistrationForm.libraryCardNumber}"></span></span>
-	            </div>
-	            <div class="stat">
-	              <span class="label">Student Id</span>
-	              <span class="value"><span th:text="${libraryRegistrationForm.studentId}"></span></span>
-	            </div>
-	        </div>
-	    </div>
-	</div>
 	    
-    <button onclick="downloadLibraryCard()">Download Library Card</button>
+    
 
 	<footer class="pt-3 pb-3" style="background-color: #3D3D3D;">
         <div class="container">
