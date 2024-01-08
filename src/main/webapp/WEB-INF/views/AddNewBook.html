@@ -108,6 +108,13 @@
 		            <input type="text" th:field="*{genre}" class="form-control" id="genre" required>
 		            <div class="invalid-feedback">Please provide a genre.</div>
 		        </div>
+		        
+		        <!-- Short Description Input -->
+		        <div class="mb-3">
+		            <label for="description" class="form-label">Short Description:</label>
+		            <textarea th:field="*{description}" class="form-control" id="description" required></textarea>
+		            <div class="invalid-feedback">Please provide a short description.</div>
+		        </div>
 		
 		        <!-- Year Published Input -->
 		        <div class="mb-3">

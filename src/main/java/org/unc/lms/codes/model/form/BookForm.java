@@ -6,6 +6,7 @@ public class BookForm {
 	private String author;
 	private String genre;
 	private String yearPublished;
+	private String description;
 	
 	public String getTitle() {
 		return title;
@@ -30,5 +31,11 @@ public class BookForm {
 	}
 	public void setYearPublished(String yearPublished) {
 		this.yearPublished = yearPublished;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

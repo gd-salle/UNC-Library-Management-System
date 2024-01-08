@@ -81,25 +81,32 @@
 	        </div>
 	
 	        <!-- Book Update Form -->
-	        <form th:action="@{/book/edit/{id}(id=${bookId})}" th:object="${updateForm}" method="post">
+	        <form th:action="@{/book/edit/{id}(id=${book.id})}" th:object="${book}" method="post">
 	            <!-- Title Input -->
 	            <div class="mb-3">
 	                <label for="title" class="form-label">Title:</label>
-	                <input type="text" th:field="*{title}" class="form-control" id="title" required th:value="${updateForm.title}" />
+	                <input type="text" th:field="*{title}" class="form-control" id="title" required th:value="${book.title}" />
 	            </div>
 	
 	            <!-- Author Input -->
 	            <div class="mb-3">
 	                <label for="author" class="form-label">Author:</label>
-	                <input type="text" th:field="*{author}" class="form-control" id="author" required th:value="${updateForm.author}" />
+	                <input type="text" th:field="*{author}" class="form-control" id="author" required th:value="${book.author}" />
 	            </div>
 	
 	            <!-- Genre Input -->
 	            <div class="mb-3">
 	                <label for="genre" class="form-label">Genre:</label>
-	                <input type="text" th:field="*{genre}" class="form-control" id="genre" required th:value="${updateForm.genre}" />
+	                <input type="text" th:field="*{genre}" class="form-control" id="genre" required th:value="${book.genre}" />
 	            </div>
-	
+	            
+				<!-- Short Description Input -->
+		        <div class="mb-3">
+		            <label for="description" class="form-label">Short Description:</label>
+		            <textarea th:field="*{description}" class="form-control" id="description" required></textarea>
+		            <div class="invalid-feedback">Please provide a short description.</div>
+		        </div>
+		        
 	            <!-- Year Published Input -->
 	            <div class="mb-3">
 				    <label for="yearPublished" class="form-label">Year Published:</label>
@@ -112,9 +119,8 @@
 	            <button type="submit" class="btn btn-primary">Update Book</button>
 	        </form>
 	    </div>
-
-
     </main>
+    
     <footer>
         <div class="container d-flex flex-column">
             <div class="row">

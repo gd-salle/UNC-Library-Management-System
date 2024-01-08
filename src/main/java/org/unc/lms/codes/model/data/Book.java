@@ -1,7 +1,5 @@
 package org.unc.lms.codes.model.data;
 
-import java.util.Date;
-
 public class Book {
 	
 	private Long id;
@@ -9,6 +7,7 @@ public class Book {
 	private String author;
 	private String genre;
 	private String yearPublished;
+	private String description;
 	
 	public Long getId() {
 		return id;
@@ -39,5 +38,11 @@ public class Book {
 	}
 	public void setYearPublished(String yearPublished) {
 		this.yearPublished = yearPublished;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

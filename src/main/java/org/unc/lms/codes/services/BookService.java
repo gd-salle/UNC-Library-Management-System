@@ -36,6 +36,7 @@ public class BookService {
             b.setAuthor(bookCreationForm.getAuthor());
             b.setGenre(bookCreationForm.getGenre());
             b.setYearPublished(bookCreationForm.getYearPublished());
+            b.setDescription(bookCreationForm.getDescription());
 
             // Call the repository method to add the book
             boolean isBookAdded = bookRepository.addBook(b);
@@ -62,6 +63,7 @@ public class BookService {
 	            existingBook.setAuthor(updateForm.getAuthor());
 	            existingBook.setGenre(updateForm.getGenre());
 	            existingBook.setYearPublished(updateForm.getYearPublished());
+	            existingBook.setDescription(updateForm.getDescription());
 	            bookRepository.updateBook(existingBook);
 	            return true; // Return true if the update is successful
 	        }
