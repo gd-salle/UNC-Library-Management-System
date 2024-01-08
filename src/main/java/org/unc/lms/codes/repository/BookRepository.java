@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.unc.lms.codes.model.data.Book;
@@ -68,6 +68,28 @@ private static Logger logger = Logger.getLogger(StudentRepository.class.getName(
                     return book;
                 });
     }
+	
+	public Book getBookById(Long id) {
+        String sql = "SELECT * FROM book WHERE id = ?";
+        try {
+            List<Book> books = jdbcTemplate.query(sql, (rs, rowNum) -> {
+                Book book = new Book();
+                book.setId(rs.getLong("id"));
+                book.setTitle(rs.getString("title"));
+                book.setAuthor(rs.getString("author"));
+                book.setGenre(rs.getString("genre"));
+                book.setYearPublished(rs.getString("yearpublished"));
+                return book;
+            }, id);
 
-
+            return books.isEmpty() ? null : books.get(0);
+        } catch (EmptyResultDataAccessException e) {
+            return null; // Book with the given id not found
+        }
+    }
+	
+	public void updateBook(Book book) {
+        String sql = "UPDATE book SET title = ?, author = ?, genre = ?, yearpublished = ? WHERE id = ?";
+        jdbcTemplate.update(sql, book.getTitle(), book.getAuthor(), book.getGenre(), book.getYearPublished(), book.getId());
+    }
 }
