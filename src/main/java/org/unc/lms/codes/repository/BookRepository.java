@@ -83,7 +83,8 @@ private static Logger logger = Logger.getLogger(StudentRepository.class.getName(
             }, id);
 
             return books.isEmpty() ? null : books.get(0);
-        } catch (EmptyResultDataAccessException e) {
+        } catch (Exception e) {
+        	logger.severe(e.getMessage());
             return null; // Book with the given id not found
         }
     }
@@ -91,5 +92,17 @@ private static Logger logger = Logger.getLogger(StudentRepository.class.getName(
 	public void updateBook(Book book) {
         String sql = "UPDATE book SET title = ?, author = ?, genre = ?, yearpublished = ? WHERE id = ?";
         jdbcTemplate.update(sql, book.getTitle(), book.getAuthor(), book.getGenre(), book.getYearPublished(), book.getId());
+    }
+	
+	public boolean deleteBook(Long id) {
+        try {
+            String sql = "DELETE FROM book WHERE id = ?";
+            int rowsAffected = jdbcTemplate.update(sql, id);
+
+            return rowsAffected > 0;
+        } catch (Exception e) {
+            // Log the exception or handle it as needed
+            return false;
+        }
     }
 }
