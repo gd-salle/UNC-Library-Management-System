@@ -88,6 +88,7 @@
 	    <artifactId>core</artifactId>
 	    <version>3.5.2</version>
 	</dependency>
+<<<<<<< HEAD
 	
 <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools -->
 	<dependency>
@@ -97,6 +98,8 @@
 	    <scope>runtime</scope>
 	</dependency>
 
+=======
+>>>>>>> 844c6f3 (edit book functionalities done)
 
   </dependencies>
   
