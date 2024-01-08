@@ -3,8 +3,17 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
-
+main{
+	flex: 1;
+}
+footer{
+	margin-top: auto;
+	background-color: #3D3D3D;
+}
 .navbar {
     background-color: #cc0000;
     color: white;
@@ -76,8 +85,6 @@ body {
 
 .signup-section {
   padding: 0.3rem 0rem;
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
 .text-dark {
     color: #000 !important; 
@@ -146,9 +153,3 @@ body {
   border-color: #cc0000;
 }
 
-=======
-}
->>>>>>> 3ce7664 (added book data)
-=======
-}
->>>>>>> e15223d18a056b9bd30cb7a916cf635882131250

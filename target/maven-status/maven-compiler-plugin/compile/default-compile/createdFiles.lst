@@ -1,94 +1,33 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 org\unc\lms\codes\model\data\Courses.class
-=======
->>>>>>> 3ce7664 (added book data)
-=======
->>>>>>> e15223d18a056b9bd30cb7a916cf635882131250
 org\unc\lms\codes\services\StudentService.class
 org\unc\lms\codes\components\package-info.class
 org\unc\lms\codes\repository\StudentRepository$1.class
 org\unc\lms\codes\UNCLibraryManagementSystem.class
 org\unc\lms\codes\controller\package-info.class
-<<<<<<< HEAD
-<<<<<<< HEAD
 org\unc\lms\codes\services\DepartmentService.class
-=======
-org\unc\lms\codes\model\data\Overdue.class
->>>>>>> cc94111 (minor developments)
-=======
->>>>>>> 0c2dbf0 (modified userdashboard repo)
 org\unc\lms\codes\repository\package-info.class
-<<<<<<< HEAD
-<<<<<<< HEAD
 org\unc\lms\codes\model\data\Department.class
-=======
->>>>>>> 3ce7664 (added book data)
 org\unc\lms\codes\controller\LMSController.class
 org\unc\lms\codes\model\data\Student.class
-<<<<<<< HEAD
+org\unc\lms\codes\services\BookService.class
 org\unc\lms\codes\repository\DepartmentRepository$1.class
-=======
-org\unc\lms\codes\services\BookService.class
->>>>>>> 0c2dbf0 (modified userdashboard repo)
 org\unc\lms\codes\services\QRCodeService.class
 org\unc\lms\codes\controller\RegisterController.class
-<<<<<<< HEAD
-<<<<<<< HEAD
+org\unc\lms\codes\repository\BookRepository.class
+org\unc\lms\codes\model\data\Book.class
 org\unc\lms\codes\services\LibraryCardNumberService.class
-=======
->>>>>>> 3ce7664 (added book data)
-=======
-org\unc\lms\codes\repository\BookRepository.class
-org\unc\lms\codes\model\data\Book.class
->>>>>>> cc94111 (minor developments)
-=======
-org\unc\lms\codes\controller\LMSController.class
-org\unc\lms\codes\model\data\Student.class
-org\unc\lms\codes\services\BookService.class
-org\unc\lms\codes\services\QRCodeService.class
-org\unc\lms\codes\controller\RegisterController.class
-org\unc\lms\codes\repository\BookRepository.class
-org\unc\lms\codes\model\data\Book.class
->>>>>>> e15223d18a056b9bd30cb7a916cf635882131250
 org\unc\lms\codes\package-info.class
-<<<<<<< HEAD
-<<<<<<< HEAD
 org\unc\lms\codes\repository\CoursesRepository.class
-=======
-org\unc\lms\codes\services\UserDashboardServices.class
->>>>>>> 0c2dbf0 (modified userdashboard repo)
-=======
->>>>>>> 079a892 (rebuild book functionalities)
 org\unc\lms\codes\SpringMVContainerConfig.class
 org\unc\lms\codes\controller\BookController.class
 org\unc\lms\codes\repository\StudentRepository$2.class
 org\unc\lms\codes\model\data\package-info.class
 org\unc\lms\codes\model\form\BookForm.class
 org\unc\lms\codes\model\form\LibraryRegistrationForm.class
-<<<<<<< HEAD
-<<<<<<< HEAD
 org\unc\lms\codes\services\CoursesService.class
 org\unc\lms\codes\components\QRCodeGenerator.class
 org\unc\lms\codes\model\form\package-info.class
 org\unc\lms\codes\services\package-info.class
-<<<<<<< HEAD
-<<<<<<< HEAD
 org\unc\lms\codes\repository\DepartmentRepository.class
-=======
-org\unc\lms\codes\components\QRCodeGenerator.class
-org\unc\lms\codes\model\form\package-info.class
-org\unc\lms\codes\services\package-info.class
->>>>>>> 3ce7664 (added book data)
-=======
-org\unc\lms\codes\model\data\UserDashboard.class
->>>>>>> 0c2dbf0 (modified userdashboard repo)
-=======
->>>>>>> 079a892 (rebuild book functionalities)
-=======
-org\unc\lms\codes\components\QRCodeGenerator.class
-org\unc\lms\codes\model\form\package-info.class
-org\unc\lms\codes\services\package-info.class
->>>>>>> e15223d18a056b9bd30cb7a916cf635882131250
 org\unc\lms\codes\controller\LandingPageController.class
 org\unc\lms\codes\repository\StudentRepository.class
