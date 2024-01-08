@@ -16,9 +16,9 @@ org\unc\lms\codes\SpringMVContainerConfig.class
 org\unc\lms\codes\controller\BookController.class
 org\unc\lms\codes\repository\StudentRepository$2.class
 org\unc\lms\codes\model\data\package-info.class
+org\unc\lms\codes\model\form\BookForm.class
 org\unc\lms\codes\model\form\LibraryRegistrationForm.class
 org\unc\lms\codes\components\QRCodeGenerator.class
-org\unc\lms\codes\model\form\BookCreationForm.class
 org\unc\lms\codes\model\form\package-info.class
 org\unc\lms\codes\services\package-info.class
 org\unc\lms\codes\controller\LandingPageController.class
