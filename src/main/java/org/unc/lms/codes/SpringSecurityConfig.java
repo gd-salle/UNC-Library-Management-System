@@ -53,22 +53,23 @@ public class SpringSecurityConfig {
         http
             .cors(withDefaults())
             .csrf(withDefaults())
-            .authorizeHttpRequests(authorize -> authorize .requestMatchers("/login", "/register", "/get-courses","/student/qr", "/css/**", "/img/**").permitAll()
-            		.requestMatchers("/LMSLandingPage").authenticated()
-            		.anyRequest().authenticated())
+            .authorizeHttpRequests(authorize -> authorize
+            	    .requestMatchers("/login", "/register", "/get-courses", "/css/**", "/img/**").permitAll()
+            	    .anyRequest().authenticated())
             .formLogin(form -> form
                 .loginPage("/login")
                 .usernameParameter("studentId")
-				.defaultSuccessUrl("/LMSLandingPage", true).permitAll()
+                .successForwardUrl("/LMSLandingPage")
                 .failureUrl("/login?loginError=true"))
             .logout(logout -> logout
                 .logoutSuccessUrl("/?logoutSuccess=true")
                 .deleteCookies("JSESSIONID"))
             .exceptionHandling(exception -> exception
-            	    .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/login?loginRequest")))
+            	    .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/login")))
+
             .sessionManagement(session -> {
                 session.maximumSessions(1);
-                session.enableSessionUrlRewriting(true);
+                session.enableSessionUrlRewriting(true); 
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
             });
 

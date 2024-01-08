@@ -55,12 +55,14 @@ public class SpringMVContainerConfig implements WebMvcConfigurer{
 									"/css/**",
 									"/files/**",
 									"/img/**", 
-									"/js/**")
+									"/js/**",
+									"/views/**")
 		.addResourceLocations(
 							  "classpath:/static/css/",
 							  "classpath:/static/files/",
 							  "classpath:/static/img/",
-							  "classpath:/static/js/"); 
+							  "classpath:/static/js/",
+							  "classpath:/webapp/WEB-INF/views"); 
 		        
 	}
 	
