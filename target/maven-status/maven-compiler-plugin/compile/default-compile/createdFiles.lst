@@ -4,7 +4,6 @@ org\unc\lms\codes\model\data\Courses.class
 >>>>>>> 3ce7664 (added book data)
 org\unc\lms\codes\services\StudentService.class
 org\unc\lms\codes\components\package-info.class
-org\unc\lms\codes\repository\UserDashboardRepository$2.class
 org\unc\lms\codes\repository\StudentRepository$1.class
 org\unc\lms\codes\UNCLibraryManagementSystem.class
 org\unc\lms\codes\controller\package-info.class
@@ -29,7 +28,6 @@ org\unc\lms\codes\repository\DepartmentRepository$1.class
 org\unc\lms\codes\services\BookService.class
 >>>>>>> 0c2dbf0 (modified userdashboard repo)
 org\unc\lms\codes\services\QRCodeService.class
-org\unc\lms\codes\repository\UserDashboardRepository$1.class
 org\unc\lms\codes\controller\RegisterController.class
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -42,19 +40,25 @@ org\unc\lms\codes\model\data\Book.class
 >>>>>>> cc94111 (minor developments)
 org\unc\lms\codes\package-info.class
 <<<<<<< HEAD
+<<<<<<< HEAD
 org\unc\lms\codes\repository\CoursesRepository.class
 =======
 org\unc\lms\codes\services\UserDashboardServices.class
 >>>>>>> 0c2dbf0 (modified userdashboard repo)
+=======
+>>>>>>> 079a892 (rebuild book functionalities)
 org\unc\lms\codes\SpringMVContainerConfig.class
+org\unc\lms\codes\controller\BookController.class
 org\unc\lms\codes\repository\StudentRepository$2.class
 org\unc\lms\codes\model\data\package-info.class
 org\unc\lms\codes\model\form\LibraryRegistrationForm.class
 <<<<<<< HEAD
 org\unc\lms\codes\services\CoursesService.class
 org\unc\lms\codes\components\QRCodeGenerator.class
+org\unc\lms\codes\model\form\BookCreationForm.class
 org\unc\lms\codes\model\form\package-info.class
 org\unc\lms\codes\services\package-info.class
+<<<<<<< HEAD
 <<<<<<< HEAD
 org\unc\lms\codes\repository\DepartmentRepository.class
 =======
@@ -65,7 +69,7 @@ org\unc\lms\codes\services\package-info.class
 =======
 org\unc\lms\codes\model\data\UserDashboard.class
 >>>>>>> 0c2dbf0 (modified userdashboard repo)
+=======
+>>>>>>> 079a892 (rebuild book functionalities)
 org\unc\lms\codes\controller\LandingPageController.class
-org\unc\lms\codes\repository\UserDashboardRepository.class
-org\unc\lms\codes\controller\BorrowerDashboardController.class
 org\unc\lms\codes\repository\StudentRepository.class

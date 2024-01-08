@@ -1,9 +1,7 @@
-package org.unc.lms.codes.model.data;
+package org.unc.lms.codes.model.form;
 
-import java.util.Date;
-
-public class Book {
-
+public class BookCreationForm {
+	
 	private String title;
 	private String author;
 	private String genre;

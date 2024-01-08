@@ -26,28 +26,26 @@ C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java
 C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\services\StudentService.java
 =======
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\model\data\Student.java
+C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\controller\BookController.java
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\controller\LandingPageController.java
-C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\model\data\UserDashboard.java
+C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\controller\LMSController.java
+C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\package-info.java
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\services\QRCodeService.java
+C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\controller\package-info.java
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\model\form\LibraryRegistrationForm.java
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\services\package-info.java
-C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\services\UserDashboardServices.java
+C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\controller\RegisterController.java
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\components\QRCodeGenerator.java
+C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\model\form\package-info.java
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\model\data\Book.java
+C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\repository\StudentRepository.java
+C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\model\form\BookCreationForm.java
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\repository\BookRepository.java
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\services\BookService.java
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\UNCLibraryManagementSystem.java
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\model\data\package-info.java
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\repository\package-info.java
-C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\SpringMVContainerConfig.java
-C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\controller\LMSController.java
-C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\package-info.java
-C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\controller\package-info.java
-C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\controller\BorrowerDashboardController.java
-C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\controller\RegisterController.java
-C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\model\form\package-info.java
-C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\repository\StudentRepository.java
-C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\repository\UserDashboardRepository.java
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\components\package-info.java
+C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\SpringMVContainerConfig.java
 C:\SpringBoot\Projects\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\services\StudentService.java
 >>>>>>> 3ce7664 (added book data)
