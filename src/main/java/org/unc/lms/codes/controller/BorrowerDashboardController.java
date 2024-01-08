@@ -11,7 +11,7 @@ public class BorrowerDashboardController {
 	
 	@RequestMapping(path = "/user/dashboard", method = RequestMethod.GET)
 	public String viewDashboard(Model model) {
-		return null;
+		return "UserDashboard";
 	}
 	
 }
