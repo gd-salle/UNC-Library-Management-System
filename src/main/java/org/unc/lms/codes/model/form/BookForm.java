@@ -1,6 +1,6 @@
 package org.unc.lms.codes.model.form;
 
-public class BookCreationForm {
+public class BookForm {
 	
 	private String title;
 	private String author;
