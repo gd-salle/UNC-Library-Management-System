@@ -68,6 +68,19 @@ public class BookController {
         return "redirect:/book/collection";
     }
     
+    @RequestMapping(path="book/delete/{id}", method = RequestMethod.GET)
+    public String deleteBook(@PathVariable Long id, Model model) {
+        boolean deleted = bookService.deleteBook(id);
+
+        if (deleted) {
+            model.addAttribute("successMessage", "Book deleted successfully!");
+        } else {
+            model.addAttribute("errorMessage", "Failed to delete the book. Please try again.");
+        }
+
+        return "redirect:/book/collection";
+    }
+    
     @RequestMapping(path = "/book/collection", method = RequestMethod.GET)
     public String getBookCollection(@RequestParam(name = "search", required = false) String searchQuery, Model model) {
         List<Book> books;
