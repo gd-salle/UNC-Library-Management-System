@@ -16,9 +16,9 @@ public class BookService {
 	
 	private static Logger logger = Logger.getLogger(StudentService.class.getName());
 	
-	public List<Book> findAllBook(){
-		return null;
-	}
+	public List<Book> getAllBooks() {
+        return bookRepository.getAllBooks();
+    }
 	
 	public List<Book> searchBooks(String keyword){
 		return null;
@@ -30,19 +30,27 @@ public class BookService {
 	
 	public boolean createBook(BookCreationForm bookCreationForm) {
 		try {
-			Book b = new Book();
-			
-			b.setTitle(bookCreationForm.getTitle());
-			b.setAuthor(bookCreationForm.getAuthor());
-			b.setGenre(bookCreationForm.getGenre());
-			b.setYearPublished(bookCreationForm.getYearPublished());
-			
-			return bookRepository.addBook(b);
-		} catch(Exception e) {
-			logger.severe(e.getMessage());
-			
-			return false;
-		}
+            // Create a Book object from the form data
+            Book b = new Book();
+            b.setTitle(bookCreationForm.getTitle());
+            b.setAuthor(bookCreationForm.getAuthor());
+            b.setGenre(bookCreationForm.getGenre());
+            b.setYearPublished(bookCreationForm.getYearPublished());
+
+            // Call the repository method to add the book
+            boolean isBookAdded = bookRepository.addBook(b);
+
+            if (isBookAdded) {
+                // Book added successfully
+                return true;
+            } else {
+                // Book creation failed (likely due to a duplicate)
+                return false;
+            }
+        } catch (Exception e) {
+            logger.severe(e.getMessage());
+            return false;
+        }
 	}
 	
 	public void updateBook() {
