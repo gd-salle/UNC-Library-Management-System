@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.unc.lms.codes.model.data.Book;
-import org.unc.lms.codes.model.form.BookCreationForm;
+import org.unc.lms.codes.model.form.BookForm;
 import org.unc.lms.codes.repository.BookRepository;
 
 @Service
@@ -24,11 +24,11 @@ public class BookService {
         return bookRepository.searchBooks(keyword);
     }
 	
-	public Book findBookByID(Long id) {
-		return null;
-	}
+	public Book getBookById(Long id) {
+        return bookRepository.getBookById(id);
+    }
 	
-	public boolean createBook(BookCreationForm bookCreationForm) {
+	public boolean createBook(BookForm bookCreationForm) {
 		try {
             // Create a Book object from the form data
             Book b = new Book();
@@ -53,8 +53,23 @@ public class BookService {
         }
 	}
 	
-	public void updateBook() {
-		
+	public boolean updateBook(Long id, BookForm updateForm) {
+	    try {
+	        Book existingBook = bookRepository.getBookById(id);
+	        if (existingBook != null) {
+	            // Update the existing book with the data from the update form
+	            existingBook.setTitle(updateForm.getTitle());
+	            existingBook.setAuthor(updateForm.getAuthor());
+	            existingBook.setGenre(updateForm.getGenre());
+	            existingBook.setYearPublished(updateForm.getYearPublished());
+	            bookRepository.updateBook(existingBook);
+	            return true; // Return true if the update is successful
+	        }
+	    } catch (Exception e) {
+	        // Log the exception or handle it as needed
+	        e.printStackTrace();
+	    }
+	    return false; // Return false if the update fails
 	}
 	
 	public void deleteBook() {
