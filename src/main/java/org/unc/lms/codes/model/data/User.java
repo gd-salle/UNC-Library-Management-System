@@ -125,29 +125,4 @@ public class User {
 		this.yearLevel = yearLevel;
 	}
 	
-//	public String getFullName() {
-//        StringBuilder fullName = new StringBuilder();
-//
-//        if (firstName != null) {
-//            fullName.append(firstName);
-//        }
-//
-//        if (middleName != null && !middleName.isEmpty()) {
-//            fullName.append(" ").append(middleName.charAt(0)).append(".");
-//        }
-//
-//        if (lastName != null) {
-//            fullName.append(" ").append(lastName);
-//        }
-//
-//        if (suffix != null) {
-//            fullName.append(" ").append(suffix);
-//        }
-//
-//        return fullName.toString().trim();
-//	}
-//	public void setFullName(String fullName) {
-//		this.fullName = fullName; 
-//	}
-	 
 }

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.unc.lms.codes.components.QRCodeGenerator;
-import org.unc.lms.codes.model.data.User;
+import org.unc.lms.codes.model.data.Student;
 import org.unc.lms.codes.model.form.LibraryRegistrationForm;
 import org.unc.lms.codes.services.CoursesService;
 import org.unc.lms.codes.services.DepartmentService;
@@ -67,7 +67,7 @@ public class RegisterController {
 	 
 	@GetMapping("/student/qr")
 	public ResponseEntity<byte[]> getQRCode(String studentId) {
-		User student = userService.getStudentData(studentId); 
+		Student student = studentService.getStudentData(studentId); 
 	    String text = qRCodeService.generateQRCodeContent(student);
 	    //debugging
 	    System.out.println("Student data received: " + text);

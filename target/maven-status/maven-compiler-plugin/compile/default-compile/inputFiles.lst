@@ -6,7 +6,6 @@ C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java
 C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\SpringMVContainerConfig.java
 C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\model\data\User.java
 C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\repository\UserRepository.java
-C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\model\data\Userss.java
 C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\model\form\package-info.java
 C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\package-info.java
 C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\repository\StudentRepository.java
@@ -22,6 +21,7 @@ C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java
 C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\controller\package-info.java
 C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\model\data\Department.java
 C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\UNCLibraryManagementSystem.java
+C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\model\data\Student.java
 C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\model\data\Courses.java
 C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\controller\LandingPageController.java
 C:\Integrative Programming\Projects\WS1\UNCLibraryManagementSystem\src\main\java\org\unc\lms\codes\repository\DepartmentRepository.java

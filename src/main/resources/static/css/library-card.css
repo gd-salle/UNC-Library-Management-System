@@ -40,7 +40,7 @@ body {
 
 .card {
   position: relative;
-  width: 350px;
+  width: 320px;
   height: auto;
   margin: 30px auto;
   border-radius: 10px;
@@ -154,6 +154,42 @@ body {
 }
 
 .button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  width: 100%;
+  height: inherit;
+  border-radius: inherit;
+  background: #cc0000; 
+  transition: all 0.475s;
+}
+
+
+.button .login {
+  position: relative;
+  overflow: hidden;
+  height: 3rem;
+  padding: 0 2rem;
+  border-radius: 1.5rem;
+  background-size: 400%;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.button .login:hover::before {
+  transform: scaleX(1);
+}
+
+.button-content {
+  position: relative;
+  z-index: 1;
+}
+
+.button .login::before {
   content: "";
   position: absolute;
   top: 0;

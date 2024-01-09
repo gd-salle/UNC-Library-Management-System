@@ -37,10 +37,15 @@
 		    
 		    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="background-color: #cc0000;">
 		    
-		      <div class="offcanvas-header">
-		        <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">User</h5>
-		        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-		      </div>
+			<div class="offcanvas-header" th:if="${authentication != null and authentication.authenticated and authentication.principal != null}">
+			    <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">
+			        <span th:text="'Student ID: ' + ${authentication.principal.username}"></span>
+			    </h5>
+			    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+
+
+
 		      
 		      <div class="offcanvas-body">
 		        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -54,7 +59,13 @@
 		            <a class="nav-link" href="#">Book Collection</a>
 		          </li>
 		          <li class="nav-item">
-		            <a class="nav-link" href="#">Logout</a>
+		            <!-- Include this wherever you want the logout button -->
+					<form th:action="@{/logout}" method="post" id="logoutForm">
+					    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+					     <!-- onclick="document.getElementById('logoutForm').submit()" -->
+					    <button class="nav-link" type="submit">Logout</button>
+					</form>
+		            
 		          </li>
 		        </ul>
 		      </div>
@@ -117,12 +128,7 @@
 	        </div>
 	        
 	    </div>
-	</div><!-- Include this wherever you want the logout button -->
-	<form th:action="@{/logout}" method="post" id="logoutForm">
-	    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-	    <a th:href="@{/login}" onclick="document.getElementById('logoutForm').submit()">Logout</a>
-	</form>
-
+	</div>
         
     </main>
     <footer class="pt-3 pb-3" style="background-color: #3D3D3D;">

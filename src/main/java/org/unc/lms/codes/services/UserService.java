@@ -75,7 +75,7 @@ public class UserService implements UserDetailsService {
             logger.severe(e.getMessage());
             return null;
         }
-	}
+	} 
 	
 	public User getStudentData(String studentId) { 
 		return userRepository.findByStudentId(studentId); 
@@ -108,5 +108,4 @@ public class UserService implements UserDetailsService {
 	        Optional<User> optionalUser = Optional.ofNullable(userRepository.findByStudentId(studentId));
 	        return optionalUser.map(User::getPassword).orElse(null);
 	    }
-	
 }

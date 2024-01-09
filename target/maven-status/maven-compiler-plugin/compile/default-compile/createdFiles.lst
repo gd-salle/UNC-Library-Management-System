@@ -6,11 +6,11 @@ org\unc\lms\codes\UNCLibraryManagementSystem.class
 org\unc\lms\codes\model\data\User.class
 org\unc\lms\codes\controller\package-info.class
 org\unc\lms\codes\SecurityInterface.class
-org\unc\lms\codes\model\data\Userss.class
 org\unc\lms\codes\services\DepartmentService.class
 org\unc\lms\codes\repository\package-info.class
 org\unc\lms\codes\model\data\Department.class
 org\unc\lms\codes\controller\LMSController.class
+org\unc\lms\codes\model\data\Student.class
 org\unc\lms\codes\services\UserService.class
 org\unc\lms\codes\repository\DepartmentRepository$1.class
 org\unc\lms\codes\services\QRCodeService.class

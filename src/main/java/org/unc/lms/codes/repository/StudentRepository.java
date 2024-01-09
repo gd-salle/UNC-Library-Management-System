@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import org.unc.lms.codes.model.data.User;
+import org.unc.lms.codes.model.data.Student;
 
 
 @Repository
@@ -24,7 +24,7 @@ public class StudentRepository {
 	public JdbcTemplate jdbcTemplate;
 	
 	@Transactional
-	public boolean addStudent(User s) {
+	public boolean addStudent(Student s) {
 	    try {
 	        String sql = "INSERT INTO Users(student_id, first_name, middle_name, last_name, suffix, unc_email, phone_num, dept_id, course_id,"
 	        		+ "  user_type, ez_name, password, librarycard_number, yearlevel) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -37,18 +37,18 @@ public class StudentRepository {
 	        return false;
 	    }
 	} 
-	
-	public User selectStudent(String studentId) {
+	//QR code data
+	public Student selectStudent(String studentId) {
 		String sql = "SELECT student_id, ez_name, first_name, middle_name, last_name, suffix, unc_email, phone_num, dept_id, course_id, user_type, librarycard_number, yearlevel " +
 	             "FROM Users WHERE student_id = ?";
-		 List<User> student = jdbcTemplate.query(sql, new PreparedStatementSetter() {
+		 List<Student> student = jdbcTemplate.query(sql, new PreparedStatementSetter() {
 			 @Override
 			 public void setValues(PreparedStatement preparedStatement) throws SQLException {
 		            preparedStatement.setString(1, studentId);
 		        }
-		 }, new RowMapper<User>() {
+		 }, new RowMapper<Student>() {
 			 @Override
-			 public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+			 public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
 				 String studentId = rs.getString("student_id"); 
 				 String ezName = rs.getString("ez_name"); 
 	             String firstName = rs.getString("first_name"); 
@@ -63,7 +63,7 @@ public class StudentRepository {
 	             String libraryCardNum = rs.getString("librarycard_number"); 
 	             String yearLevel = rs.getString("yearlevel"); 
 	             
-				 User s = new User(); 
+				 Student s = new Student(); 
 				 
 				 s.setStudentId(studentId); 
 				 s.setEzName(ezName);
