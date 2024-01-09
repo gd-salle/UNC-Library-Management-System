@@ -14,50 +14,67 @@
 <body>
    <header>
         <nav class="navbar navbar-expand-sm navbar-dark fixed-top">
-        	<div class="container-fluid">
-        		<div class="logo-container">
-		            <img th:src="@{/img/unc-logo.png}" alt="Logo" class="logo">
-		            <div class="text-container">
-		                <span class="main-text">Library Management System</span>
-		                <span class="sub-text">University of Nueva Caceres</span>
-		            </div>
-		        </div>
-				<!--Button  -->
-        	</div>
-        </nav>
+		    <div class="container-fluid">
+		        <a class="navbar-brand" th:href="@{/}">
+		            <span class="logo-container">
+		                <img th:src="@{/img/unc-logo.png}" alt="Logo" class="logo">
+		                <span class="text-container">
+		                    <span class="main-text">Library Management System</span>
+		                    <span class="sub-text">University of Nueva Caceres</span>
+		                </span>
+		            </span>
+		        </a>
+		    </div>
+		</nav>
     </header>
     
-    <div class="row">
-    	<div class="col-md-6">
-			<div class="card">
-			    <div class="card-header">
-					<!-- header  -->
-					<span class="image"><img th:src="@{${qrCodeUrl}}" alt="QR Code" /></span>  
-				</div>
-				<div class="card-body">
-					<span class="name"><span th:text="${libraryRegistrationForm.fullName}"></span>, <span th:text="${libraryRegistrationForm.yearLevel}"></span></span><br>
-					<span class="job-title"><u><span th:text="${libraryRegistrationForm.course}"></span></u></span>
-					<br>
-					<span class="job-title"><span th:text="${libraryRegistrationForm.department}"></span></span>
-					<div class="bio">
-						<span th:text="${libraryRegistrationForm.uncEmail}"></span>
-						<br>
-						<span th:text="${libraryRegistrationForm.phoneNum}"></span>
+    <main>
+	    <div class="row">
+	    	<div class="col-md-6">
+				<div class="card">
+				    <div class="card-header">
+						<!-- header  -->
+						<span class="image"><img th:src="@{${qrCodeUrl}}" alt="QR Code" /></span>  
 					</div>
+					<div class="card-body">
+						<span class="name"><span th:text="${libraryRegistrationForm.fullName}"></span>, <span th:text="${libraryRegistrationForm.yearLevel}"></span></span><br>
+						<span class="job-title"><u><span th:text="${libraryRegistrationForm.course}"></span></u></span>
+						<br>
+						<span class="job-title"><span th:text="${libraryRegistrationForm.department}"></span></span>
+						<div class="bio">
+							<span th:text="${libraryRegistrationForm.uncEmail}"></span>
+							<br>
+							<span th:text="${libraryRegistrationForm.phoneNum}"></span>
+						</div>
+					</div>
+				
+				    <div class="card-footer">
+				        <div class="stats">
+				            <div class="stat">
+								<span class="label">Library Card</span>
+								<span class="value"><span th:text="${libraryRegistrationForm.libraryCardNumber}"></span></span>
+				            </div>
+				            <div class="stat">
+								<span class="label">Student Id</span>
+								<span class="value"><span th:text="${libraryRegistrationForm.studentId}"></span></span>
+				            </div>
+				        </div>
+				    </div>
 				</div>
-			
-			    <div class="card-footer">
-			        <div class="stats">
-			            <div class="stat">
-							<span class="label">Library Card</span>
-							<span class="value"><span th:text="${libraryRegistrationForm.libraryCardNumber}"></span></span>
-			            </div>
-			            <div class="stat">
-							<span class="label">Student Id</span>
-							<span class="value"><span th:text="${libraryRegistrationForm.studentId}"></span></span>
-			            </div>
-			        </div>
+	    	</div>
+	    	<div class="col-md-6">
+	    		<!-- Instruction Section -->
+			    <div class="instruction-section text-center mt-4">
+			        <h4>How to Use Your Library Card</h4>
+			        <p>Your library card serves as your official identification for accessing library resources. Please follow these instructions:</p>
+			        <ol>
+			            <li class="text-left">Present your library card at the library entrance for access.</li>
+			            <li class="text-left">Ensure that your library card is visible when borrowing books or materials.</li>
+			            <li class="text-left">For any issues with your library card, contact the library administration.</li>
+			        </ol>
+			        <p>To download your library card for digital use, click the "Download Library Card" button above.</p>
 			    </div>
+<<<<<<< HEAD
 			</div>
     	</div>
     	<div class="col-md-6">
@@ -92,53 +109,59 @@
     </div>
      
     
+=======
+			    <button class="button"  onclick="downloadLibraryCard()">
+					<span class="button-content">Download Library Card </span></button>
+	    	</div>
+	    </div>
+    </main>
+>>>>>>> main
     
 	
 	    
     
 
-	<footer class="pt-3 pb-3" style="background-color: #3D3D3D;">
-        <div class="container">
-        <div class="row">
-       		<!-- Left Section - Logo and Name -->
-			<div class="col-lg-4 text-left d-flex justify-content-center align-items-center">
-			    <div class="d-flex align-items-center">
-			        <img th:src="@{/img/unc-logo.png}" alt="Logo" width="75" height="75">
-			        <div class="ml-3 text-center">
-			            <p class="mb-0 text-white">UNIVERSITY OF</p>
-			            <p class="mb-0 text-white">NUEVA CACERES</p>
-			        </div>
-			    </div>
-			</div>
+	<footer>
+        <div class="container d-flex flex-column">
+            <div class="row">
+                <!-- Left Section - Logo and Name -->
+                <div class="col-lg-4 text-left d-flex justify-content-center align-items-center">
+                    <div class="d-flex align-items-center">
+                        <img th:src="@{/img/unc-logo.png}" alt="Logo" width="75" height="75">
+                        <div class="ml-3 text-center">
+                            <p class="mb-0 text-white">UNIVERSITY OF</p>
+                            <p class="mb-0 text-white">NUEVA CACERES</p>
+                        </div>
+                    </div>
+                </div>
 
-            <!-- Middle Section - Address -->
-            <div class="col-lg-4 text-center d-flex align-items-center justify-content-center">
-            	<div class="pt-3" style="font-size: 15px; line-height: 0.1;">
-	                <p class="text-white">J. Hernandez Avenue, Naga City 4404</p>
-	                <p class="text-white">095611301775 | 09071566898</p>
-	                <p><a href="">info@unc.edu.ph</a></p>
-	                <p><a href="">admission@unc.edu.ph</a></p>
-            	</div>
-            </div>
+                <!-- Middle Section - Address -->
+                <div class="col-lg-4 text-center d-flex align-items-center justify-content-center">
+                    <div class="pt-3" style="font-size: 15px; line-height: 0.1;">
+                        <p class="text-white">J. Hernandez Avenue, Naga City 4404</p>
+                        <p class="text-white">095611301775 | 09071566898</p>
+                        <p><a href="" class="text-white">info@unc.edu.ph</a></p>
+                        <p><a href="" class="text-white">admission@unc.edu.ph</a></p>
+                    </div>
+                </div>
 
-            <!-- Left Section - Social Media Links -->
-            <div class="col-lg-4 text-right d-flex align-items-center justify-content-center">
-            
-            	<div class="pt-3">
-                <ul class="list-unstyled">
-                    <li><a href="#" class="text-white">Facebook</a></li>
-                    <li><a href="#" class="text-white">Twitter</a></li>
-                    <li><a href="#" class="text-white">Instagram</a></li>
-                </ul>
-            	</div>
-                
+                <!-- Right Section - Social Media Links -->
+                <div class="col-lg-4 text-right d-flex align-items-center justify-content-center">
+                    <div class="pt-3">
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">Facebook</a></li>
+                            <li><a href="#" class="text-white">Twitter</a></li>
+                            <li><a href="#" class="text-white">Instagram</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+
+        <div class="text-center text-white" style="background-color: #919191; width: 100%;">
+            <span>Copyright © 2023. University of Nueva Caceres. All Rights Reserved.</span>
+        </div>
     </footer>
-    <div class="text-center text-white" style="background-color: #cc0000; font-size:10px;">
-        	<p>Copyright © 2023. University of Nueva Caceres. All Rights Reserved.</p>
-    </div>
 
 
 	<!-- html2pdf CDN Library -->
