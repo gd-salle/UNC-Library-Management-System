@@ -4,27 +4,33 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.unc.lms.codes.repository.UserRepository;
 
 @Service
 public class LibraryCardNumberService {
-	private Set<String> generatedNumbers = new HashSet<>();
+	@Autowired
+    private UserRepository userRepository;
+
+    private Set<String> generatedNumbers = new HashSet<>();
 
     public String generateLibraryCardNumber() {
         while (true) {
             // Generate a random 14-digit number
             String randomNumber = generateRandomNumber(14);
 
-            // Check if the generated number is unique
-            if (isUnique(randomNumber)) {
+            // Check if the generated number is unique in the database
+            if (isUniqueInDatabase(randomNumber)) {
                 generatedNumbers.add(randomNumber);
                 return randomNumber;
             }
         }
     }
 
-    private boolean isUnique(String number) {
-        return !generatedNumbers.contains(number);
+    private boolean isUniqueInDatabase(String number) {
+        // Check if the generated number is unique in the database
+        return !userRepository.existsByLibraryCardNumber(number);
     }
 
     private String generateRandomNumber(int length) {
@@ -36,4 +42,4 @@ public class LibraryCardNumberService {
         }
         return stringBuilder.toString();
     }
-}
+}     

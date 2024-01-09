@@ -36,8 +36,8 @@ public class StudentRepository {
 	        logger.severe(e.getMessage());
 	        return false;
 	    }
-	}
-	
+	} 
+	//QR code data
 	public Student selectStudent(String studentId) {
 		String sql = "SELECT student_id, ez_name, first_name, middle_name, last_name, suffix, unc_email, phone_num, dept_id, course_id, user_type, librarycard_number, yearlevel " +
 	             "FROM Users WHERE student_id = ?";
@@ -56,7 +56,6 @@ public class StudentRepository {
 	             String lastName = rs.getString("last_name"); 
 	             String suffix = rs.getString("suffix"); 
 	             String uncEmail = rs.getString("unc_email"); 
-//	             String course = rs.getString("course"); 
 	             String phoneNum = rs.getString("phone_num");
 	             String deptId = rs.getString("dept_id"); 
 	             String courseId = rs.getString("course_id"); 
@@ -87,5 +86,8 @@ public class StudentRepository {
 		 }); 
 		 return student.isEmpty() ? null : student.get(0);
 	}
+	
+	
+	
 	
 }

@@ -24,10 +24,18 @@
 					</div>
 				</div>
 				<!-- Button  -->
-				<button type="button" class="btn btn-light btn-circle btn-sm"> &lt; </button> 
+				<button type="button"  th:onclick="window.location.href='/login'" class="btn btn-light btn-circle btn-sm" aria-label="Close">
+				 	<span aria-hidden="true">&times;</span>
+				</button> 
 			</div>
 		</nav>
     </header>
+    
+    
+    <!-- Success message -->
+    <div th:if="${param.success}">
+    	<div class="alert alert-info"> You've successfully registered</div>
+    </div>
     <main>
 	    <div class="title">
 	        <h2>Library Card Registration Form</h2>
@@ -118,11 +126,12 @@
 					    </select>
 		            </div>
 		        </div>
-		        <div class="row">
-		            <div class="col-md-12">
-		                <button type="submit" class="btn btn-primary">SIGN UP</button>
-		            </div>
-		        </div>
+				<div class="row">
+				    <div class="col-md-12 mt-3 text-md-right">
+				        <button type="submit" class="btn btn-primary">SIGN UP</button>
+				    </div>
+				</div>
+
 		    </form>
 		</div>
     </main>

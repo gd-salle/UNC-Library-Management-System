@@ -74,11 +74,48 @@
 			        </ol>
 			        <p>To download your library card for digital use, click the "Download Library Card" button above.</p>
 			    </div>
+<<<<<<< HEAD
+			</div>
+    	</div>
+    	<div class="col-md-6">
+    		<!-- Instruction Section -->
+		    <div class="instruction-section text-center mt-4">
+		        <h4>How to Use Your Library Card</h4>
+		        <p>Your library card serves as your official identification for accessing library resources. Please follow these instructions:</p>
+		        <ol>
+		            <li class="text-left">Present your library card at the library entrance for access.</li>
+		            <li class="text-left">Ensure that your library card is visible when borrowing books or materials.</li>
+		            <li class="text-left">For any issues with your library card, contact the library administration.</li>
+		        </ol>
+		        <p>To download your library card for digital use, click the "Download Library Card" button above.</p>
+		    </div>
+		   <br>
+		   <div class="row">
+		   		<div class="col-md-3"></div>
+		    	<div class="col-md-5">
+		    		<button class="button"  onclick="downloadLibraryCard()">
+						<span class="button-content">Download Library Card </span>
+					</button>
+		    	</div>
+		    	<div class="col-md-4">
+		    		<button class="button login btn btn-success" th:onclick="window.location.href='/login'">
+						<span class="button-content">Log in now </span>
+					</button>
+		    	</div>
+		    </div>
+		    
+    	</div>
+    	
+    </div>
+     
+    
+=======
 			    <button class="button"  onclick="downloadLibraryCard()">
 					<span class="button-content">Download Library Card </span></button>
 	    	</div>
 	    </div>
     </main>
+>>>>>>> main
     
 	
 	    
@@ -128,25 +165,27 @@
 
 
 	<!-- html2pdf CDN Library -->
-    <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
-    <script>
-        function downloadLibraryCard() {
-            var element = document.querySelector('.card');
+	<script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+	<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+	<script>
+	    function downloadLibraryCard() {
+	        var element = document.querySelector('.card');
+	
+	        html2pdf(element, {
+	            margin: 5,
+	            filename: 'library_card.pdf',
+	            image: { type: 'jpeg', quality: 1 },
+	            html2canvas: { 
+	                scale: 1,  // Set scale to 1 to maintain the original size
+	                useCORS: true,  // Allow cross-origin images
+	                logging: false  // Disable console logging for html2canvas
+	            },
+	            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+	        });
+	
+	    }
+	</script>
 
-            html2pdf(element, {
-                margin: 10,
-                filename: 'library_card.pdf',
-                image: { type: 'jpeg', quality: 1 },
-                html2canvas: { 
-                    scale: 1,
-                    useCORS: true,  // Allow cross-origin images
-                    logging: false  // Disable console logging for html2canvas
-                },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            });
-
-        }
-    </script>
 
 </body>
 

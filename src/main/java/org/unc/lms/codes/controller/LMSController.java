@@ -2,6 +2,7 @@ package org.unc.lms.codes.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -12,4 +13,10 @@ public class LMSController {
 	public String initDashboard(Model model) {
 		return "LMSLandingPage";
 	}
+	
+	@GetMapping(path="/profile")
+	public String initbook(Model model) {
+		return "ProfileManager";
+	}
 }
+ 

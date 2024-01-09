@@ -24,6 +24,7 @@ import org.unc.lms.codes.services.DepartmentService;
 import org.unc.lms.codes.services.LibraryCardNumberService;
 import org.unc.lms.codes.services.QRCodeService;
 import org.unc.lms.codes.services.StudentService;
+import org.unc.lms.codes.services.UserService;
 
 import com.google.zxing.WriterException;
 
@@ -34,6 +35,8 @@ public class RegisterController {
 	 private QRCodeGenerator qrCodeGenerator;
 	 @Autowired
 	 private StudentService studentService; 
+	 @Autowired
+	 private UserService userService; 
 	 @Autowired
 	 private QRCodeService 	qRCodeService; 
 	 @Autowired
@@ -61,7 +64,7 @@ public class RegisterController {
 		
         return "LibraryCardRegisterView";
     }    
-	
+	 
 	@GetMapping("/student/qr")
 	public ResponseEntity<byte[]> getQRCode(String studentId) {
 		Student student = studentService.getStudentData(studentId); 
@@ -100,7 +103,7 @@ public class RegisterController {
 
 	@RequestMapping(path = "register", method = RequestMethod.POST)
 	public String showLibraryCard(Model model, @ModelAttribute LibraryRegistrationForm libraryRegistrationForm) {
-		studentService.addStudentData(libraryRegistrationForm);
+		userService.addStudentData(libraryRegistrationForm);
 	    
 	    System.out.println("Library Registration Form data: " + libraryRegistrationForm.toString());
 	    

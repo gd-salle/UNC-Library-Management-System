@@ -32,12 +32,6 @@ public class CoursesRepository {
 	public String getCourseIdByCourseName(String courseName) {
 		String sql = "SELECT course_id FROM courses WHERE course_name = ?"; 
 		
-//		try {
-//			return jdbcTemplate.queryForObject(sql, String.class, courseName);
-//	    } catch (Exception e) {
-//			logger.severe(e.getMessage());
-//	        return null;
-//	    }
 		List<String> courses = jdbcTemplate.queryForList(sql, String.class, courseName);
 
 	    if (courses.isEmpty()) {
