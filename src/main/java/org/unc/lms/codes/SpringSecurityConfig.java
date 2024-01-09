@@ -59,7 +59,7 @@ public class SpringSecurityConfig  {
             	    .anyRequest().authenticated())
             .formLogin(form -> form
                 .loginPage("/login")
-                .usernameParameter("studentId")
+                .usernameParameter("libraryCardNumber")
                 .defaultSuccessUrl("/LMSLandingPage")
                 .permitAll()
                 .failureHandler((request, response, exception) -> {

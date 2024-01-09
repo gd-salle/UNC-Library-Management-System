@@ -30,20 +30,14 @@ public class LandingPageController {
 	//LOGIN
 	@RequestMapping(path = "/login", method = RequestMethod.GET)
     public String viewHome(Model model, HttpServletRequest request) {
-        // Check if the "accessDenied" parameter is present
-        if (request.getParameter("accessDenied") != null) {
-            model.addAttribute("accessDenied", "Access denied. Please log in.");
-        }
-
         model.addAttribute("libraryRegistrationForm", new LibraryRegistrationForm());
         return "LandingPage";
     }
 	
 	
 	@RequestMapping("/LMSLandingPage")
-	public String viewLMSLandingPage(Model model) {
-		 logger.info("Reached LMSLandingPage controller method.");
-
+	public String viewLMSLandingPage(Model model, Authentication authentication) {
+	    model.addAttribute("authentication", authentication);
 	    return "LMSLandingPage";
 	}
 

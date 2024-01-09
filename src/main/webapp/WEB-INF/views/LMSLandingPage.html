@@ -39,7 +39,7 @@
 		    
 			<div class="offcanvas-header" th:if="${authentication != null and authentication.authenticated and authentication.principal != null}">
 			    <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">
-			        <span th:text="'Student ID: ' + ${authentication.principal.username}"></span>
+			        <span th:text="'Library Card Number: ' + ${authentication.principal.username}"></span>
 			    </h5>
 			    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>

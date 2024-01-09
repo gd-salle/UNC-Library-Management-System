@@ -77,35 +77,32 @@ public class UserService implements UserDetailsService {
         }
 	} 
 	
-	public User getStudentData(String studentId) { 
-		return userRepository.findByStudentId(studentId); 
+	public Optional<User> getStudentData(String libraryCardNumber) { 
+		return userRepository.findByLibraryCardNumber(libraryCardNumber); 
 	}
 	
-	public Optional<User> findStudentByStudentIdAndPassword(String studentId, String password) {
-        return userRepository.findByStudentIdAndPassword(studentId, password);
+	public Optional<User> findStudentByStudentIdAndPassword(String libraryCardNumber, String password) {
+        return userRepository.findByLibraryCardNumberAndPassword(libraryCardNumber, password);
     }
 	
 	
-	public UserDetails loadUserByUsername(String student_id) throws UsernameNotFoundException {
-		User user = userRepository.findByStudentId(student_id); 
-		if(user == null) {
-			throw new UsernameNotFoundException("Invalid username or password. "); 
-		}
-		
-		 // Map user_type to roles (authorities)
+	public UserDetails loadUserByUsername(String libraryCardNumber) throws UsernameNotFoundException {
+	    Optional<User> userOptional = userRepository.findByLibraryCardNumber(libraryCardNumber);
+	    
+	    User user = userOptional.orElseThrow(() -> new UsernameNotFoundException("Invalid username or password."));
+
+	    // Map user_type to roles (authorities)
 	    Set<String> userRoles = Collections.singleton(user.getUserType());
-		
-		
-		// Convert roles to a collection of GrantedAuthority objects
+
+	    // Convert roles to a collection of GrantedAuthority objects
 	    Set<GrantedAuthority> authorities = new HashSet<>();
 	    for (String role : userRoles) {
 	        authorities.add(new SimpleGrantedAuthority("ROLE_" + role));
 	    }
-	    return new org.springframework.security.core.userdetails.User(user.getStudentId(), user.getPassword(), authorities); 
+
+	    return new org.springframework.security.core.userdetails.User(
+	            user.getLibraryCardNumber(), // Use LibraryCardNumber as the username
+	            user.getPassword(),
+	            authorities);
 	}
-	
-	 public String getStoredPasswordHash(String studentId) {
-	        Optional<User> optionalUser = Optional.ofNullable(userRepository.findByStudentId(studentId));
-	        return optionalUser.map(User::getPassword).orElse(null);
-	    }
 }
